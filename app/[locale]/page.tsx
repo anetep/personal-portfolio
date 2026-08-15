@@ -66,7 +66,7 @@ export default async function Home({
         </div>
       </header>
 
-      <section className="min-h-[470px] rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] px-8 py-9 md:px-[53px]">
+      <section className="relative min-h-[470px] rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] px-8 py-9 md:px-[53px]">
         <div className="flex items-start gap-8">
           <p className="whitespace-pre text-[13px] leading-5 text-[#996e4d]">
             {"⌁  /\\_/\\\n( o.o )"}
@@ -85,6 +85,22 @@ export default async function Home({
           <p className="mt-6 max-w-3xl text-lg leading-8 text-[#665e52] md:text-[21px]">
             {copy.hero.description}
           </p>
+          <p className="mt-10 text-sm text-[#996e4d]">
+            {copy.hero.currently}
+          </p>
+
+          <a
+            href="#work"
+            className="mt-10 inline-flex h-12 items-center rounded-full bg-[#45614a] px-7 text-sm font-semibold text-[#fbf9f0] transition-colors hover:bg-[#35503a]"
+          >
+            {copy.hero.cta}
+          </a>
+        </div>
+
+        <div className="mt-10 text-sm leading-5 text-[#665e52] md:absolute md:right-[14%] md:bottom-12 md:mt-0">
+          {copy.hero.details.map((detail) => (
+            <p key={detail}>{detail}</p>
+          ))}
         </div>
       </section>
     </main>

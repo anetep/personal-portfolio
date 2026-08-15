@@ -16,9 +16,16 @@ export const content = {
     },
     hero: {
       label: "PERSONAL NOTEBOOK · SOFTWARE ENGINEER",
-      title: "Hi, I’m Anete.",
+      title: "Hi, I'm Anete.",
       description:
-        "I’m a software engineer who enjoys building useful things for the web and making complicated problems feel simple.",
+        "I'm a software engineer who enjoys building useful things for the web and making complicated problems feel simple.",
+      currently: "currently → learning Next.js · running 5 km",
+      cta: "See my work →",
+      details: [
+        "based in Porto, Portugal",
+        "frontend-minded · fullstack curious",
+        "tea + running + cats",
+      ],
     },
   },
   pt: {
@@ -33,6 +40,13 @@ export const content = {
       title: "Olá, sou a Anete.",
       description:
         "Sou engenheira de software e gosto de criar coisas úteis para a web e de tornar problemas complicados mais simples.",
+      currently: "neste momento → a aprender Next.js · a correr 5 km",
+      cta: "Ver o meu trabalho →",
+      details: [
+        "Porto, Portugal",
+        "gosto de frontend · curiosa por fullstack",
+        "chá + corrida + gatos",
+      ],
     },
   },
 } as const;
