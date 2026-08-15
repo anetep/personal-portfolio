@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
+import { isLocale, locales } from "./content";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -12,8 +13,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const locales = ["en", "pt"] as const;
 
 export const dynamicParams = false;
 
@@ -32,7 +31,7 @@ export default async function RootLayout({
 }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
 
-  if (locale !== "en" && locale !== "pt") {
+  if (!isLocale(locale)) {
     notFound();
   }
 
