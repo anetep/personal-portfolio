@@ -85,6 +85,29 @@ export const content = {
       linkedinLabel: "LINKEDIN",
       note: "PS: if you are here because of a cat, we already have something in common.",
     },
+    archive: {
+      title: "PERSONAL ARCHIVE",
+      cards: [
+        {
+          id: "notes",
+          label: "NOTES",
+          title: "things I’m learning",
+          description: "Next.js, TypeScript, and small discoveries worth keeping.",
+        },
+        {
+          id: "places",
+          label: "PLACES",
+          title: "a map, eventually",
+          description: "Favourite places, journeys, and pins collected over time.",
+        },
+        {
+          id: "currently",
+          label: "CURRENTLY",
+          title: "right now",
+          description: "Next.js · 5 km runs · coffee · cats",
+        },
+      ],
+    },
   },
   pt: {
     navigation: {
@@ -163,6 +186,29 @@ export const content = {
       githubLabel: "GITHUB",
       linkedinLabel: "LINKEDIN",
       note: "PS: se vieste pelos gatos, já temos algo em comum.",
+    },
+    archive: {
+      title: "ARQUIVO PESSOAL",
+      cards: [
+        {
+          id: "notes",
+          label: "NOTAS",
+          title: "coisas que estou a aprender",
+          description: "Next.js, TypeScript e pequenas descobertas que vale a pena guardar.",
+        },
+        {
+          id: "places",
+          label: "LUGARES",
+          title: "um mapa, eventualmente",
+          description: "Lugares favoritos, viagens e pins colecionados ao longo do tempo.",
+        },
+        {
+          id: "currently",
+          label: "NESTE MOMENTO",
+          title: "agora",
+          description: "Next.js · corridas de 5 km · café · gatos",
+        },
+      ],
     },
   },
 } as const;

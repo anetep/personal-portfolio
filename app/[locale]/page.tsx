@@ -181,6 +181,35 @@ export default async function Home({
           </aside>
         </div>
       </section>
+      <section className="border-t border-[#c7baa3] py-16 md:py-20">
+        <h2 className="mb-5 text-xs font-medium text-[#665e52]">
+          {copy.archive.title}
+        </h2>
+
+        <div className="grid gap-3 md:grid-cols-3">
+          {copy.archive.cards.map((card) => (
+            <article
+              id={card.id}
+              key={card.id}
+              className="flex min-h-44 flex-col rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] p-6 transition-colors hover:bg-[#f0eadc]"
+            >
+              <p className="text-[11px] font-medium text-[#45614a]">
+                {card.label}
+              </p>
+
+              <h3 className="mt-10 text-lg font-semibold text-[#241f1a]">
+                {card.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-5 text-[#665e52]">
+                {card.description}
+              </p>
+
+              <span className="mt-auto pt-6 text-sm text-[#996e4d]">⌁</span>
+            </article>
+          ))}
+        </div>
+      </section>
       <footer
           id="contact"
           className="border-t border-[#c7baa3] py-16 md:py-20"
