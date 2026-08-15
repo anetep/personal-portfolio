@@ -181,6 +181,59 @@ export default async function Home({
           </aside>
         </div>
       </section>
+      <footer
+          id="contact"
+          className="border-t border-[#c7baa3] py-16 md:py-20"
+        >
+          <div className="grid gap-10 md:grid-cols-[1.4fr_0.8fr] md:gap-20">
+            <div>
+              <p className="text-xs font-medium text-[#45614a]">
+                {copy.contact.eyebrow}
+              </p>
+
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-[#241f1a] md:text-5xl">
+                {copy.contact.title}
+              </h2>
+
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[#665e52]">
+                {copy.contact.description}
+              </p>
+
+              <a
+                href="mailto:anetempereira@gmail.com"
+                className="mt-10 inline-block border-b border-[#45614a] pb-1 text-lg font-semibold text-[#45614a] transition-colors hover:text-[#241f1a]"
+              >
+                anetempereira@gmail.com
+              </a>
+            </div>
+
+            <div className="self-end border-t border-[#c7baa3] pt-6">
+              <div className="flex gap-6 text-xs font-medium text-[#665e52]">
+                <a
+                  href="https://github.com/anetep"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-[#241f1a]"
+                >
+                  {copy.contact.githubLabel} ↗
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/anete-pereira-8b3726216/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-[#241f1a]"
+                >
+                  {copy.contact.linkedinLabel} ↗
+                </a>
+              </div>
+
+              <p className="mt-10 text-sm leading-5 text-[#996e4d]">
+                {copy.contact.note}
+              </p>
+            </div>
+          </div>
+        </footer>
     </main>
   );
 }

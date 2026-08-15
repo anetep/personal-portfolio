@@ -75,6 +75,16 @@ export const content = {
       noteLabel: "SMALL NOTE",
       note: "This website is a growing archive of work, notes, places, and experiments.",
     },
+    contact: {
+      eyebrow: "GET IN TOUCH",
+      title: "Let’s make something useful.",
+      description:
+        "I’m always happy to talk about software, thoughtful products, maps, and interesting ideas.",
+      emailLabel: "EMAIL",
+      githubLabel: "GITHUB",
+      linkedinLabel: "LINKEDIN",
+      note: "PS: if you are here because of a cat, we already have something in common.",
+    },
   },
   pt: {
     navigation: {
@@ -143,6 +153,16 @@ export const content = {
       ],
       noteLabel: "PEQUENA NOTA",
       note: "Este site é um arquivo em crescimento de trabalho, notas, lugares e experiências.",
+    },
+    contact: {
+      eyebrow: "CONTACTO",
+      title: "Vamos criar algo útil.",
+      description:
+        "Gosto sempre de conversar sobre software, produtos bem pensados, mapas e ideias interessantes.",
+      emailLabel: "EMAIL",
+      githubLabel: "GITHUB",
+      linkedinLabel: "LINKEDIN",
+      note: "PS: se vieste pelos gatos, já temos algo em comum.",
     },
   },
 } as const;
