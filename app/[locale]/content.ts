@@ -53,6 +53,28 @@ export const content = {
         },
       ],
     },
+    about: {
+      eyebrow: "A LITTLE ABOUT ME",
+      title: "I like building useful things and making them feel simple.",
+      description:
+        "I’m a software engineer based in Porto, currently working at OPT. My background combines frontend work, fullstack applications, data visualisation, and immersive experiences.",
+      facts: [
+        {
+          label: "currently",
+          value: "Software Engineer at OPT",
+        },
+        {
+          label: "education",
+          value: "MSc in Informatics and Computing Engineering · FEUP",
+        },
+        {
+          label: "outside work",
+          value: "running, volunteering with animals, and collecting places",
+        },
+      ],
+      noteLabel: "SMALL NOTE",
+      note: "This website is a growing archive of work, notes, places, and experiments.",
+    },
   },
   pt: {
     navigation: {
@@ -99,6 +121,28 @@ export const content = {
           href: "https://github.com/anetep",
         },
       ],
+    },
+    about: {
+      eyebrow: "UM POUCO SOBRE MIM",
+      title: "Gosto de criar coisas úteis e de as tornar simples.",
+      description:
+        "Sou engenheira de software no Porto e trabalho atualmente na OPT. Tenho experiência em frontend, aplicações fullstack, visualização de dados e experiências imersivas.",
+      facts: [
+        {
+          label: "ATUALMENTE",
+          value: "Software Engineer na OPT",
+        },
+        {
+          label: "FORMAÇÃO",
+          value: "Mestrado em Engenharia Informática e Computação · FEUP",
+        },
+        {
+          label: "FORA DO TRABALHO",
+          value: "corrida, voluntariado com animais e colecionar lugares",
+        },
+      ],
+      noteLabel: "PEQUENA NOTA",
+      note: "Este site é um arquivo em crescimento de trabalho, notas, lugares e experiências.",
     },
   },
 } as const;

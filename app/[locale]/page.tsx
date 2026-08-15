@@ -135,6 +135,52 @@ export default async function Home({
           ))}
         </div>
       </section>
+      <section
+        id="about"
+        className="border-t border-[#c7baa3] py-16 md:py-20"
+      >
+        <div className="grid gap-10 md:grid-cols-[1.4fr_0.8fr] md:gap-20">
+          <div>
+            <p className="text-xs font-medium text-[#45614a]">
+              {copy.about.eyebrow}
+            </p>
+
+            <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight text-[#241f1a] md:text-5xl">
+              {copy.about.title}
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#665e52]">
+              {copy.about.description}
+            </p>
+
+            <dl className="mt-10 grid gap-6 border-t border-[#c7baa3] pt-6 sm:grid-cols-3">
+              {copy.about.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="text-[11px] font-medium text-[#45614a]">
+                    {fact.label}
+                  </dt>
+
+                  <dd className="mt-2 text-sm leading-5 text-[#665e52]">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <aside className="self-start rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] p-6 md:mt-8">
+            <p className="text-[11px] font-medium text-[#996e4d]">
+              {copy.about.noteLabel}
+            </p>
+
+            <p className="mt-10 text-lg font-semibold leading-7 text-[#241f1a]">
+              {copy.about.note}
+            </p>
+
+            <p className="mt-8 text-sm text-[#996e4d]">⌁</p>
+          </aside>
+        </div>
+      </section>
     </main>
   );
 }
