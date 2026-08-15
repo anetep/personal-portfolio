@@ -103,6 +103,38 @@ export default async function Home({
           ))}
         </div>
       </section>
+
+      <section id="work" className="py-14">
+        <h2 className="mb-5 text-xs font-medium text-[#665e52]">
+          {copy.work.title}
+        </h2>
+
+        <div className="overflow-hidden rounded-[3px] border border-[#c7baa3]">
+          {copy.work.items.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="grid gap-3 border-b border-[#c7baa3] px-5 py-5 text-[#665e52] transition-colors last:border-b-0 hover:bg-[#fbf9f0] md:grid-cols-[105px_1.35fr_1.8fr_1.6fr_auto] md:items-center md:gap-8"
+            >
+              <span className="text-[11px] font-medium">{item.year}</span>
+
+              <span className="text-lg font-semibold text-[#241f1a]">
+                {item.name}
+              </span>
+
+              <span className="text-sm">{item.description}</span>
+
+              <span className="text-xs">{item.technologies}</span>
+
+              <span className="text-lg text-[#45614a]" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

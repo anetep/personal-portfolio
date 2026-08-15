@@ -27,6 +27,32 @@ export const content = {
         "tea + running + cats",
       ],
     },
+    work: {
+      title: "SELECTED WORK",
+      items: [
+        {
+          year: "2025",
+          name: "O2MOVE",
+          description: "Mobility platform",
+          technologies: "React · Maps · ASP.NET Core",
+          href: "https://www.o2move.com/",
+        },
+        {
+          year: "2025",
+          name: "IMMERSIVE CI/CD",
+          description: "VR visualization of CI/CD pipelines",
+          technologies: "Unity · C# · OpenXR",
+          href: "https://github.com/anetep/thesis-project",
+        },
+        {
+          year: "2024",
+          name: "MORE PROJECTS",
+          description: "View the full archive",
+          technologies: "→",
+          href: "https://github.com/anetep",
+        },
+      ],
+    },
   },
   pt: {
     navigation: {
@@ -46,6 +72,32 @@ export const content = {
         "Porto, Portugal",
         "gosto de frontend · curiosa por fullstack",
         "chá + corrida + gatos",
+      ],
+    },
+    work: {
+      title: "TRABALHO SELECIONADO",
+      items: [
+        {
+          year: "2025",
+          name: "O2MOVE",
+          description: "Plataforma de mobilidade",
+          technologies: "React · Mapas · ASP.NET Core",
+          href: "https://www.o2move.com/",
+        },
+        {
+          year: "2025",
+          name: "IMMERSIVE CI/CD",
+          description: "Visualização de pipelines CI/CD em realidade virtual",
+          technologies: "Unity · C# · OpenXR",
+          href: "https://github.com/anetep/thesis-project",
+        },
+        {
+          year: "2024",
+          name: "MAIS PROJETOS",
+          description: "Ver todos os projetos",
+          technologies: "→",
+          href: "https://github.com/anetep",
+        },
       ],
     },
   },
