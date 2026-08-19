@@ -35,7 +35,7 @@ export const content = {
           name: "O2MOVE",
           description: "Mobility platform",
           technologies: "React · Maps · ASP.NET Core",
-          href: "https://www.o2move.com/",
+          slug: "o2move",
         },
         {
           year: "2025",
@@ -137,7 +137,7 @@ export const content = {
           name: "O2MOVE",
           description: "Plataforma de mobilidade",
           technologies: "React · Mapas · ASP.NET Core",
-          href: "https://www.o2move.com/",
+          slug: "o2move",
         },
         {
           year: "2025",
