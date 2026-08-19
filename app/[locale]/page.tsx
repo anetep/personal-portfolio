@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { content, isLocale } from "./content";
@@ -15,7 +16,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
     { label: copy.navigation.work, href: "#work" },
     { label: copy.navigation.about, href: "#about" },
     { label: copy.navigation.notes, href: "#notes" },
-    { label: copy.navigation.places, href: "#places" },
   ];
 
   return (
@@ -71,9 +71,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                 {copy.hero.titlePrefix} <span className="relative inline-block italic text-[var(--coral)]">{copy.hero.titleName}<span className="absolute -bottom-2 left-1/2 h-1 w-[92%] -translate-x-1/2 -rotate-2 rounded-full bg-[#b590de]" /></span>
               </h1>
 
-              <p className="mt-8 max-w-2xl font-serif text-2xl leading-[1.3] text-[var(--foreground)] md:text-[31px]">
-                {copy.hero.description}
-              </p>
+              {copy.hero.description && <p className="mt-8 max-w-2xl font-serif text-2xl leading-[1.3] text-[var(--foreground)] md:text-[31px]">{copy.hero.description}</p>}
 
               <p className="mt-8 font-mono text-xs leading-6 text-[var(--foreground)]">{copy.hero.currently}</p>
 
@@ -85,8 +83,15 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
             <div className="mx-auto grid w-full max-w-sm gap-8 lg:max-w-none">
               <div className="relative mx-auto w-56 rotate-[4deg] rounded-sm border border-[var(--line)] bg-[linear-gradient(145deg,#e6d2bb,#f6eadb_42%,#c4d3df)] p-3 shadow-[7px_8px_12px_rgb(91_62_43_/_12%)]">
                 <span className="absolute -top-3 left-10 h-5 w-24 -rotate-3 bg-[#f4b5b4]/80" />
-                <div className="flex aspect-[4/3] items-end justify-end border border-white/60 bg-[radial-gradient(circle_at_25%_25%,#f8e6ca,transparent_28%),linear-gradient(155deg,#7298b4,#ead2bb)] p-3">
-                  <span className="font-mono text-[9px] text-white/90">{copy.hero.photoLabel}</span>
+                <div className="relative aspect-[4/3] overflow-hidden border border-white/60">
+                  <Image
+                    src="/images/portrait/hero-photo.jpg"
+                    alt="Anete"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 224px, 280px"
+                    className="object-cover object-[52%_47%]"
+                  />
                 </div>
               </div>
 
@@ -122,7 +127,15 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           <div className="mt-7 grid gap-10 lg:grid-cols-[280px_1fr_250px] lg:items-start">
             <div className="relative mx-auto w-56 -rotate-3 border border-[var(--line)] bg-[#fffaf2] p-3 shadow-[5px_7px_11px_rgb(91_62_43_/_10%)] lg:mx-0">
               <span className="absolute -top-2 left-16 h-4 w-20 -rotate-2 bg-[#bda4db]/75" />
-              <div className="flex aspect-square items-center justify-center bg-[#d5c1ad] font-mono text-[10px] text-white">photo to add</div>
+              <div className="relative aspect-square overflow-hidden bg-[#d5c1ad]">
+                <Image
+                  src="/images/portrait/about-photo.jpg"
+                  alt="Anete travelling in Porto"
+                  fill
+                  sizes="224px"
+                  className="object-cover object-[67%_50%]"
+                />
+              </div>
             </div>
 
             <div>
@@ -151,7 +164,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <footer id="contact" className="border-t border-[var(--line)] bg-[var(--coral-soft)] px-6 py-12 md:px-10 md:py-14">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div><p className="font-mono text-[11px] text-[var(--coral)]">{copy.contact.eyebrow}</p><h2 className="mt-5 font-serif text-5xl text-[var(--foreground)]">{copy.contact.title}</h2><p className="mt-4 max-w-lg text-sm leading-6 text-[var(--muted)]">{copy.contact.description}</p><a href="mailto:anetempereira@gmail.com" className="mt-7 inline-block border-b border-[var(--coral)] pb-1 font-mono text-sm text-[var(--foreground)]">anetempereira@gmail.com</a></div>
-            <div className="font-mono text-xs leading-8 text-[var(--foreground)]"><a className="block hover:text-[var(--coral)]" href="https://github.com/anetep" target="_blank" rel="noreferrer">{copy.contact.githubLabel} ↗</a><a className="block hover:text-[var(--coral)]" href="https://www.linkedin.com/in/anete-pereira-8b3726216/" target="_blank" rel="noreferrer">{copy.contact.linkedinLabel} ↗</a><p className="mt-4 max-w-60 text-[10px] leading-5 text-[var(--muted)]">{copy.contact.note}</p></div>
+            <div className="font-mono text-xs leading-8 text-[var(--foreground)]"><a className="block hover:text-[var(--coral)]" href="https://github.com/anetep" target="_blank" rel="noreferrer">{copy.contact.githubLabel} ↗</a><a className="block hover:text-[var(--coral)]" href="https://www.linkedin.com/in/anete-pereira-8b3726216/" target="_blank" rel="noreferrer">{copy.contact.linkedinLabel} ↗</a>{copy.contact.note && <p className="mt-4 max-w-60 text-[10px] leading-5 text-[var(--muted)]">{copy.contact.note}</p>}</div>
           </div>
         </footer>
       </div>
