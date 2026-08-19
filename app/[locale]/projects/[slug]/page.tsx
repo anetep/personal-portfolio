@@ -2,204 +2,69 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "../../content";
-import {
-  getProject,
-  getProjectSlugs,
-  isProjectSlug,
-} from "../../projects";
+import { getProject, getProjectSlugs, isProjectSlug } from "../../projects";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    getProjectSlugs().map((slug) => ({ locale, slug }))
-  );
+  return locales.flatMap((locale) => getProjectSlugs().map((slug) => ({ locale, slug })));
 }
 
-export async function generateMetadata(
-  props: PageProps<"/[locale]/projects/[slug]">
-): Promise<Metadata> {
+export async function generateMetadata(props: PageProps<"/[locale]/projects/[slug]">): Promise<Metadata> {
   const { locale, slug } = await props.params;
-
-  if (!isLocale(locale) || !isProjectSlug(slug)) {
-    return {};
-  }
-
+  if (!isLocale(locale) || !isProjectSlug(slug)) return {};
   const project = getProject(locale, slug);
-
-  return {
-    title: `${project.title} | Anete Pereira`,
-    description: project.description,
-  };
+  return { title: `${project.title} | Anete Pereira`, description: project.description };
 }
 
-export default async function ProjectPage(
-  props: PageProps<"/[locale]/projects/[slug]">
-) {
+export default async function ProjectPage(props: PageProps<"/[locale]/projects/[slug]">) {
   const { locale, slug } = await props.params;
-
-  if (!isLocale(locale) || !isProjectSlug(slug)) {
-    notFound();
-  }
-
+  if (!isLocale(locale) || !isProjectSlug(slug)) notFound();
   const project = getProject(locale, slug);
 
   return (
-    <main className="min-h-screen bg-[#f6f2e7] px-6 md:px-16">
-      <header className="flex h-28 items-center">
-        <Link
-          href={`/${locale}#work`}
-          className="text-sm font-medium text-[#45614a] transition-colors hover:text-[#241f1a]"
-        >
-          ← {project.backLabel}
-        </Link>
-      </header>
+    <main className="min-h-screen px-3 py-3 sm:px-5 sm:py-5">
+      <article className="mx-auto max-w-[1520px] overflow-hidden rounded-[26px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_12px_35px_rgb(91_62_43_/_10%)]">
+        <header className="flex min-h-16 items-center justify-between border-b border-[var(--line)] px-6 py-4 md:px-10">
+          <Link href={`/${locale}#work`} className="font-mono text-[11px] text-[var(--foreground)] transition-colors hover:text-[var(--coral)]">← {project.backLabel}</Link>
+          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="rounded-md bg-[var(--coral-soft)] px-3 py-2 font-mono text-[10px] text-[var(--coral)] transition-colors hover:bg-[var(--coral)] hover:text-white">{project.liveLabel} ↗</a>
+        </header>
 
-      <article className="pb-20 md:pb-28">
-        <section className="rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] px-8 py-10 md:px-14 md:py-14">
-          <p className="text-xs font-medium text-[#45614a]">{project.label}</p>
-
-          <h1 className="mt-5 text-5xl font-semibold tracking-tight text-[#241f1a] md:text-7xl">
-            {project.title}
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-xl leading-8 text-[#665e52] md:text-2xl">
-            {project.description}
-          </p>
-
-          <dl className="mt-12 grid gap-x-8 gap-y-7 border-t border-[#c7baa3] pt-7 sm:grid-cols-2 lg:grid-cols-4">
-            {project.metadata.map((item) => (
-              <div key={item.label}>
-                <dt className="text-[11px] font-medium text-[#45614a]">
-                  {item.label}
-                </dt>
-                <dd className="mt-2 text-sm leading-5 text-[#665e52]">
-                  {item.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
-        <section className="mt-4 rounded-[3px] border border-dashed border-[#c7baa3] bg-[#eee8d9] p-8 md:p-14">
-          <p className="text-[11px] font-medium text-[#996e4d]">
-            {project.visual.label}
-          </p>
-          <div className="mt-16 max-w-xl">
-            <p className="text-2xl font-semibold text-[#241f1a]">
-              {project.visual.title}
-            </p>
-            <p className="mt-4 text-sm leading-6 text-[#665e52]">
-              {project.visual.description}
-            </p>
+        <section className="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div>
+            <p className="font-mono text-[11px] text-[var(--coral)]">{project.label}</p>
+            <h1 className="mt-5 font-serif text-6xl leading-none text-[var(--foreground)] md:text-7xl">{project.title}</h1>
+            <p className="mt-4 font-serif text-2xl text-[var(--foreground)]">{project.description}</p>
+            <p className="mt-8 max-w-md text-sm leading-6 text-[var(--muted)]">{project.visual.description}</p>
           </div>
-          <div className="mt-16 h-1 w-24 bg-[#45614a]" />
-        </section>
 
-        <section className="grid gap-10 border-t border-[#c7baa3] py-16 md:grid-cols-[0.7fr_1.3fr] md:gap-20 md:py-20">
-          <h2 className="text-xs font-medium text-[#45614a]">
-            {project.overview.title}
-          </h2>
-          <p className="max-w-2xl text-xl leading-8 text-[#241f1a]">
-            {project.overview.description}
-          </p>
-        </section>
-
-        <section className="grid gap-10 border-t border-[#c7baa3] py-16 md:grid-cols-[0.7fr_1.3fr] md:gap-20 md:py-20">
-          <h2 className="text-xs font-medium text-[#45614a]">
-            {project.role.title}
-          </h2>
-          <ul className="grid gap-5">
-            {project.role.items.map((item) => (
-              <li
-                key={item}
-                className="border-l-2 border-[#45614a] pl-5 text-lg leading-7 text-[#665e52]"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="border-t border-[#c7baa3] py-16 md:py-20">
-          <h2 className="text-xs font-medium text-[#45614a]">
-            {project.highlights.title}
-          </h2>
-          <div className="mt-8 grid gap-px overflow-hidden rounded-[3px] border border-[#c7baa3] bg-[#c7baa3] md:grid-cols-3">
-            {project.highlights.items.map((item) => (
-              <article key={item.title} className="bg-[#fbf9f0] p-6">
-                <h3 className="text-lg font-semibold text-[#241f1a]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm leading-6 text-[#665e52]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
+          <div className="relative overflow-hidden rounded-xl border border-[var(--line)] bg-[linear-gradient(135deg,#e0cbb7,#f9ece0_42%,#bdd2dd)] p-3 shadow-[5px_7px_12px_rgb(91_62_43_/_10%)]">
+            <span className="absolute -top-2 left-14 h-5 w-24 -rotate-3 bg-[#f4b5b4]/75" />
+            <div className="flex min-h-64 items-end justify-between border border-white/70 bg-[radial-gradient(circle_at_78%_36%,#d2e1e4_0_2px,transparent_3px),radial-gradient(circle_at_40%_50%,#b5d9e8_0_3px,transparent_4px),linear-gradient(135deg,#fff8ef,#b5cee2)] p-5 md:min-h-80">
+              <p className="font-mono text-[10px] text-[var(--muted)]">{project.visual.label}</p>
+              <span className="font-mono text-[10px] text-[var(--muted)]">screenshot to add</span>
+            </div>
           </div>
         </section>
 
-        <section className="grid gap-4 border-t border-[#c7baa3] py-16 md:grid-cols-2 md:py-20">
-          <article className="rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] p-7">
-            <h2 className="text-xs font-medium text-[#45614a]">
-              {project.product.title}
-            </h2>
-            <p className="mt-7 text-lg leading-7 text-[#665e52]">
-              {project.product.description}
-            </p>
-          </article>
+        <dl className="grid gap-px border-y border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
+          {project.metadata.map((item) => <div key={item.label} className="bg-[var(--coral-soft)] px-6 py-5"><dt className="font-mono text-[10px] text-[var(--coral)]">{item.label}</dt><dd className="mt-2 font-mono text-[10px] leading-5 text-[var(--foreground)]">{item.value}</dd></div>)}
+        </dl>
 
-          <article className="rounded-[3px] border border-[#c7baa3] bg-[#fbf9f0] p-7">
-            <h2 className="text-xs font-medium text-[#45614a]">
-              {project.outcome.title}
-            </h2>
-            <p className="mt-7 text-lg leading-7 text-[#665e52]">
-              {project.outcome.description}
-            </p>
-          </article>
-        </section>
+        <div className="px-6 md:px-10">
+          <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[1fr_280px] md:py-16">
+            <div><p className="font-mono text-[11px] text-[var(--coral)]">✧ {project.overview.title}</p><p className="mt-6 max-w-2xl text-base leading-8 text-[var(--foreground)]">{project.overview.description}</p></div>
+            <aside className="relative -rotate-1 self-start border border-[#ead5bd] bg-[#fff2d7] p-6 shadow-[4px_5px_8px_rgb(91_62_43_/_8%)]"><span className="absolute -top-2 right-10 h-4 w-20 rotate-2 bg-[#deb479]/70" /><p className="font-serif text-2xl text-[var(--foreground)]">{project.product.title}</p><p className="mt-4 text-sm leading-6 text-[var(--foreground)]">{project.product.description}</p></aside>
+          </section>
 
-        <section className="border-t border-[#c7baa3] py-16 md:py-20">
-          <p className="text-xs font-medium text-[#45614a]">SCREENSHOTS</p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {project.screenshots.map((screenshot) => (
-              <div
-                key={screenshot.title}
-                className="flex min-h-56 flex-col rounded-[3px] border border-dashed border-[#c7baa3] bg-[#eee8d9] p-6"
-              >
-                <span className="text-sm text-[#996e4d]">⌁</span>
-                <h3 className="mt-auto text-lg font-semibold text-[#241f1a]">
-                  {screenshot.title}
-                </h3>
-                <p className="mt-2 text-sm leading-5 text-[#665e52]">
-                  {screenshot.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+          <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[0.6fr_1.4fr] md:py-16"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.role.title}</h2><ul className="grid gap-4">{project.role.items.map((item) => <li key={item} className="border-l-2 border-[var(--coral)] pl-4 text-sm leading-7 text-[var(--muted)]">{item}</li>)}</ul></section>
 
-        <section className="flex flex-col gap-8 border-t border-[#c7baa3] pt-10 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((technology) => (
-              <span
-                key={technology}
-                className="rounded-full border border-[#c7baa3] px-4 py-2 text-xs font-medium text-[#45614a]"
-              >
-                {technology}
-              </span>
-            ))}
-          </div>
+          <section className="border-b border-[var(--line)] py-12 md:py-16"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.highlights.title}</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{project.highlights.items.map((item) => <article key={item.title} className="rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5"><h3 className="font-serif text-2xl text-[var(--foreground)]">{item.title}</h3><p className="mt-4 text-sm leading-6 text-[var(--muted)]">{item.description}</p></article>)}</div></section>
 
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-semibold text-[#45614a] transition-colors hover:text-[#241f1a]"
-          >
-            {project.liveLabel} ↗
-          </a>
-        </section>
+          <section className="grid gap-4 border-b border-[var(--line)] py-12 md:grid-cols-2 md:py-16"><article className="rounded-xl border border-[var(--line)] bg-[var(--lavender-soft)] p-6"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.outcome.title}</h2><p className="mt-5 text-sm leading-7 text-[var(--foreground)]">{project.outcome.description}</p></article><div className="rounded-xl border border-dashed border-[var(--line)] p-6"><p className="font-mono text-[11px] text-[var(--coral)]">screenshots</p><div className="mt-5 grid gap-3 sm:grid-cols-3">{project.screenshots.map((screenshot) => <div key={screenshot.title} className="min-h-32 border border-[var(--line)] bg-[#fffaf2] p-3"><span className="font-mono text-base text-[var(--coral)]">⌁</span><h3 className="mt-5 font-mono text-[10px] text-[var(--foreground)]">{screenshot.title}</h3><p className="mt-2 text-[10px] leading-4 text-[var(--muted)]">{screenshot.description}</p></div>)}</div></div></section>
+
+          <section className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between"><div className="flex flex-wrap gap-2">{project.technologies.map((technology) => <span key={technology} className="rounded-full border border-[var(--line)] px-3 py-2 font-mono text-[10px] text-[var(--muted)]">{technology}</span>)}</div><Link href={`/${locale}#work`} className="font-mono text-[11px] text-[var(--coral)]">← {project.backLabel}</Link></section>
+        </div>
       </article>
     </main>
   );
