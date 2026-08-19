@@ -26,8 +26,8 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
     <main className="min-h-screen px-3 py-3 sm:px-5 sm:py-5">
       <article className="mx-auto max-w-[1520px] overflow-hidden rounded-[26px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_12px_35px_rgb(91_62_43_/_10%)]">
         <header className="flex min-h-16 items-center justify-between border-b border-[var(--line)] px-6 py-4 md:px-10">
-          <Link href={`/${locale}#work`} className="font-mono text-[11px] text-[var(--foreground)] transition-colors hover:text-[var(--coral)]">← {project.backLabel}</Link>
-          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="rounded-md bg-[var(--coral-soft)] px-3 py-2 font-mono text-[10px] text-[var(--coral)] transition-colors hover:bg-[var(--coral)] hover:text-white">{project.liveLabel} ↗</a>
+          <Link href={`/${locale}#work`} className="font-mono text-[11px] text-[var(--foreground)] transition-colors hover:text-[var(--coral)]">{project.backLabel}</Link>
+          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-md bg-[var(--coral-soft)] px-3 py-2 font-mono text-[10px] text-[var(--coral)] transition-colors hover:bg-[var(--coral)] hover:text-white">{project.liveLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a>
         </header>
 
         <section className="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -63,7 +63,7 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
 
           <section className="grid gap-4 border-b border-[var(--line)] py-12 md:grid-cols-2 md:py-16"><article className="rounded-xl border border-[var(--line)] bg-[var(--lavender-soft)] p-6"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.outcome.title}</h2><p className="mt-5 text-sm leading-7 text-[var(--foreground)]">{project.outcome.description}</p></article><div className="rounded-xl border border-dashed border-[var(--line)] p-6"><p className="font-mono text-[11px] text-[var(--coral)]">screenshots</p><div className="mt-5 grid gap-3 sm:grid-cols-3">{project.screenshots.map((screenshot) => <div key={screenshot.title} className="min-h-32 border border-[var(--line)] bg-[#fffaf2] p-3"><span className="font-mono text-base text-[var(--coral)]">⌁</span><h3 className="mt-5 font-mono text-[10px] text-[var(--foreground)]">{screenshot.title}</h3><p className="mt-2 text-[10px] leading-4 text-[var(--muted)]">{screenshot.description}</p></div>)}</div></div></section>
 
-          <section className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between"><div className="flex flex-wrap gap-2">{project.technologies.map((technology) => <span key={technology} className="rounded-full border border-[var(--line)] px-3 py-2 font-mono text-[10px] text-[var(--muted)]">{technology}</span>)}</div><Link href={`/${locale}#work`} className="font-mono text-[11px] text-[var(--coral)]">← {project.backLabel}</Link></section>
+          <section className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between"><div className="flex flex-wrap gap-2">{project.technologies.map((technology) => <span key={technology} className="rounded-full border border-[var(--line)] px-3 py-2 font-mono text-[10px] text-[var(--muted)]">{technology}</span>)}</div><Link href={`/${locale}#work`} className="font-mono text-[11px] text-[var(--coral)]">{project.backLabel}</Link></section>
         </div>
       </article>
     </main>

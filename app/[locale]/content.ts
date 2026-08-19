@@ -26,7 +26,7 @@ export const content = {
     },
     work: {
       title: "01. selected work",
-      viewAll: "view all projects →",
+      viewAll: "view all projects",
       items: [
         {
           year: "2025",
@@ -36,7 +36,7 @@ export const content = {
           slug: "o2move",
           accent: "#e95863",
           wash: "#ffe8e5",
-          doodle: "⌖",
+          doodle: "map",
         },
         {
           year: "2025",
@@ -46,7 +46,7 @@ export const content = {
           href: "https://github.com/anetep/thesis-project",
           accent: "#a587c9",
           wash: "#eee7fa",
-          doodle: "✦",
+          doodle: "account_tree",
         },
         {
           year: "2024",
@@ -55,7 +55,7 @@ export const content = {
           technologies: "Case study in progress",
           accent: "#bd8852",
           wash: "#f7e8d2",
-          doodle: "⌁",
+          doodle: "directions_transit",
         },
       ],
     },
@@ -65,9 +65,9 @@ export const content = {
       description:
         "I’m a software engineer based in Porto, currently working at OPT. My work brings together frontend, fullstack applications, data visualisation, and immersive experiences.",
       facts: [
-        { label: "currently", value: "Software Engineer at OPT" },
+        { label: "currently", value: "Software Engineer at OPT", href: "https://www.opt.pt/" },
         { label: "education", value: "MSc in Informatics and Computing Engineering · FEUP" },
-        { label: "outside work", value: "running, animals, and collecting places" },
+        { label: "based in", value: "Porto, Portugal" },
       ],
       noteLabel: "things I love",
       note: "cats · running · books · travel · music",
@@ -108,7 +108,7 @@ export const content = {
     },
     work: {
       title: "01. trabalho selecionado",
-      viewAll: "ver todos os projetos →",
+      viewAll: "ver todos os projetos",
       items: [
         {
           year: "2025",
@@ -118,7 +118,7 @@ export const content = {
           slug: "o2move",
           accent: "#e95863",
           wash: "#ffe8e5",
-          doodle: "⌖",
+          doodle: "map",
         },
         {
           year: "2025",
@@ -128,7 +128,7 @@ export const content = {
           href: "https://github.com/anetep/thesis-project",
           accent: "#a587c9",
           wash: "#eee7fa",
-          doodle: "✦",
+          doodle: "account_tree",
         },
         {
           year: "2024",
@@ -137,7 +137,7 @@ export const content = {
           technologies: "Caso de estudo em preparação",
           accent: "#bd8852",
           wash: "#f7e8d2",
-          doodle: "⌁",
+          doodle: "directions_transit",
         },
       ],
     },
@@ -147,9 +147,9 @@ export const content = {
       description:
         "Sou engenheira de software no Porto e trabalho atualmente na OPT. O meu trabalho reúne frontend, aplicações fullstack, visualização de dados e experiências imersivas.",
       facts: [
-        { label: "atualmente", value: "Software Engineer na OPT" },
+        { label: "atualmente", value: "Software Engineer na OPT", href: "https://www.opt.pt/" },
         { label: "formação", value: "Mestrado em Engenharia Informática e Computação · FEUP" },
-        { label: "fora do trabalho", value: "corrida, animais e colecionar lugares" },
+        { label: "localização", value: "Porto, Portugal" },
       ],
       noteLabel: "coisas de que gosto",
       note: "gatos · corrida · livros · viagens · música",

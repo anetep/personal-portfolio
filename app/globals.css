@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded");
 @import "tailwindcss";
 
 :root {
@@ -34,4 +35,13 @@ body {
     var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-style: normal;
+  font-weight: normal;
+  font-feature-settings: "liga";
+  line-height: 1;
+  white-space: nowrap;
 }

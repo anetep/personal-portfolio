@@ -47,7 +47,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
             <span className="text-[var(--muted)]">/</span>
             <Link href="/pt" className={locale === "pt" ? "text-[var(--foreground)]" : "text-[var(--muted)]"}>PT</Link>
             <a href="#contact" className="ml-2 rounded-md bg-[var(--coral-soft)] px-3 py-2 text-[var(--coral)] transition-colors hover:bg-[var(--coral)] hover:text-white">
-              {copy.navigation.contact} ♡
+              <span className="inline-flex items-center gap-1.5"><span>{copy.navigation.contact}</span><span className="material-symbols-rounded text-sm" aria-hidden="true">mail</span></span>
             </a>
           </div>
         </header>
@@ -97,7 +97,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
 
               <aside className="mx-auto w-56 -rotate-2 border border-[#ddd2e7] bg-[var(--lavender-soft)] px-5 py-5 shadow-[3px_5px_8px_rgb(91_62_43_/_8%)] lg:ml-4">
                 {copy.hero.details.map((detail) => <p className="font-mono text-xs leading-6 text-[var(--foreground)]" key={detail}>{detail}</p>)}
-                <span className="float-right mt-1 text-xl text-[var(--coral)]">♡</span>
+                <span className="material-symbols-rounded float-right mt-1 text-xl text-[var(--coral)]" aria-hidden="true">favorite</span>
               </aside>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               <h2 className="max-w-2xl font-serif text-4xl leading-tight text-[var(--foreground)] md:text-5xl">{copy.about.title}</h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted)]">{copy.about.description}</p>
               <dl className="mt-8 grid gap-5 border-t border-[var(--line)] pt-6 sm:grid-cols-3">
-                {copy.about.facts.map((fact) => <div key={fact.label}><dt className="font-mono text-[10px] uppercase text-[var(--coral)]">{fact.label}</dt><dd className="mt-2 text-sm leading-5 text-[var(--muted)]">{fact.value}</dd></div>)}
+                {copy.about.facts.map((fact) => <div key={fact.label}><dt className="font-mono text-[10px] uppercase text-[var(--coral)]">{fact.label}</dt><dd className="mt-2 text-sm leading-5 text-[var(--muted)]">{"href" in fact ? <a href={fact.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 border-b border-[var(--coral)]/50 text-[var(--foreground)] transition-colors hover:text-[var(--coral)]">{fact.value}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a> : fact.value}</dd></div>)}
               </dl>
             </div>
 
@@ -157,14 +157,14 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <section className="border-t border-[var(--line)] px-6 py-12 md:px-10 md:py-14">
           <h2 className="font-mono text-[11px] text-[var(--coral)]">{copy.archive.title}</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {copy.archive.cards.map((card) => <article id={card.id} key={card.id} className="min-h-44 rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5 transition-transform hover:-translate-y-1"><p className="font-mono text-[10px] text-[var(--coral)]">{card.label} ↗</p><h3 className="mt-8 font-serif text-2xl text-[var(--foreground)]">{card.title}</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{card.description}</p></article>)}
+            {copy.archive.cards.map((card) => <article id={card.id} key={card.id} className="min-h-44 rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5 transition-transform hover:-translate-y-1"><p className="font-mono text-[10px] text-[var(--coral)]">{card.label}</p><h3 className="mt-8 font-serif text-2xl text-[var(--foreground)]">{card.title}</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{card.description}</p></article>)}
           </div>
         </section>
 
         <footer id="contact" className="border-t border-[var(--line)] bg-[var(--coral-soft)] px-6 py-12 md:px-10 md:py-14">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div><p className="font-mono text-[11px] text-[var(--coral)]">{copy.contact.eyebrow}</p><h2 className="mt-5 font-serif text-5xl text-[var(--foreground)]">{copy.contact.title}</h2><p className="mt-4 max-w-lg text-sm leading-6 text-[var(--muted)]">{copy.contact.description}</p><a href="mailto:anetempereira@gmail.com" className="mt-7 inline-block border-b border-[var(--coral)] pb-1 font-mono text-sm text-[var(--foreground)]">anetempereira@gmail.com</a></div>
-            <div className="font-mono text-xs leading-8 text-[var(--foreground)]"><a className="block hover:text-[var(--coral)]" href="https://github.com/anetep" target="_blank" rel="noreferrer">{copy.contact.githubLabel} ↗</a><a className="block hover:text-[var(--coral)]" href="https://www.linkedin.com/in/anete-pereira-8b3726216/" target="_blank" rel="noreferrer">{copy.contact.linkedinLabel} ↗</a>{copy.contact.note && <p className="mt-4 max-w-60 text-[10px] leading-5 text-[var(--muted)]">{copy.contact.note}</p>}</div>
+            <div className="font-mono text-xs leading-8 text-[var(--foreground)]"><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="https://github.com/anetep" target="_blank" rel="noreferrer">{copy.contact.githubLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="https://www.linkedin.com/in/anete-pereira-8b3726216/" target="_blank" rel="noreferrer">{copy.contact.linkedinLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a>{copy.contact.note && <p className="mt-4 max-w-60 text-[10px] leading-5 text-[var(--muted)]">{copy.contact.note}</p>}</div>
           </div>
         </footer>
       </div>
@@ -173,5 +173,5 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
 }
 
 function ProjectCard({ item }: { item: { year: string; name: string; description: string; technologies: string; doodle: string } }) {
-  return <><span className="inline-flex rounded-md bg-[var(--card-accent)] px-2 py-1 font-mono text-[10px] text-white">{item.year}</span><h3 className="mt-5 font-serif text-3xl text-[var(--foreground)]">{item.name}</h3><p className="mt-2 max-w-56 font-mono text-[11px] leading-5 text-[var(--foreground)]">{item.description}</p><p className="mt-5 font-mono text-[9px] leading-4 text-[var(--foreground)]">{item.technologies}</p><div className="mt-8 flex h-14 items-end justify-end border-t border-[var(--card-accent)]/35"><span className="text-5xl leading-none text-[var(--card-accent)]">{item.doodle}</span></div></>;
+  return <><span className="inline-flex rounded-md bg-[var(--card-accent)] px-2 py-1 font-mono text-[10px] text-white">{item.year}</span><h3 className="mt-5 font-serif text-3xl text-[var(--foreground)]">{item.name}</h3><p className="mt-2 max-w-56 font-mono text-[11px] leading-5 text-[var(--foreground)]">{item.description}</p><p className="mt-5 font-mono text-[9px] leading-4 text-[var(--foreground)]">{item.technologies}</p><div className="mt-8 flex h-14 items-end justify-end border-t border-[var(--card-accent)]/35"><span className="material-symbols-rounded text-5xl leading-none text-[var(--card-accent)]" aria-hidden="true">{item.doodle}</span></div></>;
 }
