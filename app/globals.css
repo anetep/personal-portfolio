@@ -45,3 +45,52 @@ body {
   line-height: 1;
   white-space: nowrap;
 }
+
+.goodreads-widget .gr_custom_container_1787185012 {
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.goodreads-widget .gr_custom_header_1787185012 {
+  display: none;
+}
+
+.goodreads-widget .gr_custom_each_container_1787185012 {
+  clear: both;
+  min-height: 70px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.goodreads-widget .gr_custom_book_container_1787185012 {
+  float: left;
+  width: 39px;
+  height: 60px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.goodreads-widget .gr_custom_title_1787185012 a,
+.goodreads-widget .gr_custom_author_1787185012 a {
+  color: var(--foreground);
+  text-decoration-color: var(--coral);
+}
+
+.goodreads-widget .gr_custom_title_1787185012 {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.goodreads-widget .gr_custom_author_1787185012,
+.goodreads-widget .gr_custom_tags_1787185012 {
+  margin-top: 4px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+}
+
+.goodreads-widget .gr_custom_rating_1787185012 {
+  display: none;
+}

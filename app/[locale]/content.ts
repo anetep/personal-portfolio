@@ -11,7 +11,7 @@ export const content = {
     navigation: {
       work: "work",
       about: "about",
-      notes: "notes",
+      notes: "archive",
       contact: "say hello",
     },
     hero: {
@@ -84,8 +84,18 @@ export const content = {
     archive: {
       title: "personal archive",
       cards: [
-        { id: "notes", label: "notes", title: "things I’m learning", description: "Next.js, TypeScript, and small discoveries worth keeping." },
-        { id: "currently", label: "currently", title: "right now", description: "Next.js · PostgreSQL · 5 km runs · cats" },
+        {
+          id: "reading",
+          label: "reading",
+          title: "currently reading",
+          description: "",
+        },
+        {
+          id: "listening",
+          label: "listening",
+          title: "calm mood playlist",
+          description: "",
+        },
       ],
     },
   },
@@ -93,7 +103,7 @@ export const content = {
     navigation: {
       work: "trabalho",
       about: "sobre",
-      notes: "notas",
+      notes: "arquivo",
       contact: "diz olá",
     },
     hero: {
@@ -166,8 +176,18 @@ export const content = {
     archive: {
       title: "arquivo pessoal",
       cards: [
-        { id: "notes", label: "notas", title: "coisas que estou a aprender", description: "Next.js, TypeScript e pequenas descobertas que vale a pena guardar." },
-        { id: "currently", label: "neste momento", title: "agora", description: "Next.js · PostgreSQL · corridas de 5 km · gatos" },
+        {
+          id: "reading",
+          label: "leitura",
+          title: "a ler agora",
+          description: "",
+        },
+        {
+          id: "listening",
+          label: "a ouvir",
+          title: "playlist calma",
+          description: "",
+        },
       ],
     },
   },

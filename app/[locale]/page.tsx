@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GoodreadsWidget } from "./GoodreadsWidget";
 import { content, isLocale } from "./content";
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
@@ -15,7 +16,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const navigationItems = [
     { label: copy.navigation.work, href: "#work" },
     { label: copy.navigation.about, href: "#about" },
-    { label: copy.navigation.notes, href: "#notes" },
+    { label: copy.navigation.notes, href: "#archive" },
   ];
 
   return (
@@ -154,10 +155,30 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           </div>
         </section>
 
-        <section className="border-t border-[var(--line)] px-6 py-12 md:px-10 md:py-14">
+        <section id="archive" className="border-t border-[var(--line)] px-6 py-12 md:px-10 md:py-14">
           <h2 className="font-mono text-[11px] text-[var(--coral)]">{copy.archive.title}</h2>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {copy.archive.cards.map((card) => <article id={card.id} key={card.id} className="min-h-44 rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5 transition-transform hover:-translate-y-1"><p className="font-mono text-[10px] text-[var(--coral)]">{card.label}</p><h3 className="mt-8 font-serif text-2xl text-[var(--foreground)]">{card.title}</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{card.description}</p></article>)}
+          <div className="mt-5 grid gap-4 lg:grid-cols-2">
+            {copy.archive.cards.map((card) => (
+              <article id={card.id} key={card.id} className="rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5">
+                <p className="font-mono text-[10px] text-[var(--coral)]">{card.label}</p>
+                <h3 className="mt-4 font-serif text-2xl text-[var(--foreground)]">{card.title}</h3>
+                {card.id === "reading" ? (
+                  <GoodreadsWidget />
+                ) : (
+                  <iframe
+                    className="mt-5 w-full"
+                    title="Anete's calm mood playlist on Spotify"
+                    src="https://open.spotify.com/embed/playlist/7tTVR1HKVqiN2jNgmZqp29?utm_source=generator&si=f20f2d9dbc1248e5"
+                    width="100%"
+                    height="152"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                )}
+              </article>
+            ))}
           </div>
         </section>
 
