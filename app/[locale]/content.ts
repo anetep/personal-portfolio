@@ -34,8 +34,8 @@ export const content = {
           description: "Mobility platform for urban hubs.",
           technologies: "React · Leaflet · ASP.NET Core",
           slug: "o2move",
-          accent: "#e95863",
-          wash: "#ffe8e5",
+          accent: "#53785c",
+          wash: "#e4eee1",
           doodle: "map",
         },
         {
@@ -63,10 +63,10 @@ export const content = {
       eyebrow: "02. a little about me",
       title: "I like building useful things and making them feel simple.",
       description:
-        "I’m a software engineer based in Porto, currently working at OPT. My work brings together frontend, fullstack applications, data visualisation, and immersive experiences.",
+        "I’m originally from São Tomé and Príncipe and have been based in Porto since 2020, where I completed my bachelor’s and master’s degrees at FEUP. I’m currently a software engineer at OPT, working across frontend, fullstack applications, data visualisation, and immersive experiences.",
       facts: [
         { label: "currently", value: "Software Engineer at OPT", href: "https://www.opt.pt/" },
-        { label: "education", value: "MSc in Informatics and Computing Engineering · FEUP" },
+        { label: "education", value: "MSc in Informatics and Computing Engineering · FEUP", href: "https://fe.up.pt/estudar/meic/?lang=en" },
         { label: "based in", value: "Porto, Portugal" },
       ],
       noteLabel: "things I love",
@@ -126,8 +126,8 @@ export const content = {
           description: "Plataforma de mobilidade para hubs urbanos.",
           technologies: "React · Leaflet · ASP.NET Core",
           slug: "o2move",
-          accent: "#e95863",
-          wash: "#ffe8e5",
+          accent: "#53785c",
+          wash: "#e4eee1",
           doodle: "map",
         },
         {
@@ -155,10 +155,10 @@ export const content = {
       eyebrow: "02. um pouco sobre mim",
       title: "Gosto de criar coisas úteis e de as tornar simples.",
       description:
-        "Sou engenheira de software no Porto e trabalho atualmente na OPT. O meu trabalho reúne frontend, aplicações fullstack, visualização de dados e experiências imersivas.",
+        "Sou natural de São Tomé e Príncipe e vivo no Porto desde 2020, onde fiz a licenciatura e o mestrado na FEUP. Trabalho atualmente como engenheira de software na OPT, entre frontend, aplicações fullstack, visualização de dados e experiências imersivas.",
       facts: [
         { label: "atualmente", value: "Software Engineer na OPT", href: "https://www.opt.pt/" },
-        { label: "formação", value: "Mestrado em Engenharia Informática e Computação · FEUP" },
+        { label: "formação", value: "Mestrado em Engenharia Informática e Computação · FEUP", href: "https://fe.up.pt/estudar/meic/?lang=en" },
         { label: "localização", value: "Porto, Portugal" },
       ],
       noteLabel: "coisas de que gosto",
