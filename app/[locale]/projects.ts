@@ -12,19 +12,14 @@ export const projects = {
       liveLabel: "Visit O2MOVE",
       liveUrl: "https://www.o2move.com/",
       metadata: [
-        { label: "CONTEXT", value: "BE.Neutral Agenda · PPS2" },
+        { label: "CONTEXT", value: "BE.Neutral Agenda · PPS2", icon: "hub" },
         {
           label: "ROLE",
           value: "Frontend development · backend contributions",
+          icon: "code",
         },
-        {
-          label: "PLATFORM",
-          value: "Interactive public touchscreen displays",
-        },
-        {
-          label: "STACK",
-          value: "React 18 · Vite · Leaflet · ASP.NET Core",
-        },
+        { label: "WHEN", value: "2024–2025", icon: "calendar_month" },
+        { label: "STACK", value: "React 18 · Vite · Leaflet · ASP.NET Core", icon: "data_object" },
       ],
       visual: {
         label: "MAIN VISUAL · PLACEHOLDER",
@@ -104,19 +99,14 @@ export const projects = {
       liveLabel: "Visitar O2MOVE",
       liveUrl: "https://www.o2move.com/",
       metadata: [
-        { label: "CONTEXTO", value: "Agenda BE.Neutral · PPS2" },
+        { label: "CONTEXTO", value: "Agenda BE.Neutral · PPS2", icon: "hub" },
         {
           label: "FUNÇÃO",
           value: "Desenvolvimento frontend · contribuições no backend",
+          icon: "code",
         },
-        {
-          label: "PLATAFORMA",
-          value: "Ecrãs táteis públicos e interativos",
-        },
-        {
-          label: "STACK",
-          value: "React 18 · Vite · Leaflet · ASP.NET Core",
-        },
+        { label: "QUANDO", value: "2024–2025", icon: "calendar_month" },
+        { label: "STACK", value: "React 18 · Vite · Leaflet · ASP.NET Core", icon: "data_object" },
       ],
       visual: {
         label: "VISUAL PRINCIPAL · PLACEHOLDER",
