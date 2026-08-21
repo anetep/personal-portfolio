@@ -110,15 +110,14 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
             <a href="https://github.com/anetep" target="_blank" rel="noreferrer" className="text-[var(--foreground)] hover:text-[var(--coral)]">{copy.work.viewAll}</a>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-6">
             {copy.work.items.map((item) => {
               const style = { "--card-accent": item.accent, "--card-wash": item.wash } as CSSProperties;
               const card = <ProjectCard item={item} />;
-              const className = "group block min-h-[265px] rounded-xl border border-[var(--card-accent)] bg-[var(--card-wash)] p-5 shadow-[0_5px_10px_rgb(91_62_43_/_7%)] transition-transform hover:-translate-y-1";
+              const span = "prominence" in item && item.prominence === "supporting" ? "md:col-span-3" : "md:col-span-2";
+              const className = `group block min-h-[265px] rounded-xl border border-[var(--card-accent)] bg-[var(--card-wash)] p-5 shadow-[0_5px_10px_rgb(91_62_43_/_7%)] transition-transform hover:-translate-y-1 ${span}`;
 
-              if ("slug" in item) return <Link key={item.name} href={`/${locale}/projects/${item.slug}`} className={className} style={style}>{card}</Link>;
-              if ("href" in item) return <a key={item.name} href={item.href} target="_blank" rel="noreferrer" className={className} style={style}>{card}</a>;
-              return <article key={item.name} className={className} style={style}>{card}</article>;
+              return <Link key={item.name} href={`/${locale}/projects/${item.slug}`} className={className} style={style}>{card}</Link>;
             })}
           </div>
         </section>
