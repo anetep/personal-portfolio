@@ -64,8 +64,8 @@ export const content = {
         {
           year: "2025",
           name: "IMMERSIVE CI/CD",
-          description: "Unity VR system for exploring GitHub Actions pipeline executions.",
-          technologies: "Unity · C# · OpenXR",
+          description: "VR system that turns GitHub Actions execution history into a navigable 3D timeline.",
+          technologies: "Unity · C# · OpenXR · GitHub Actions API",
           slug: "immersive-cicd",
           accent: "#a587c9",
           wash: "#eee7fa",
@@ -182,8 +182,8 @@ export const content = {
         {
           year: "2025",
           name: "IMMERSIVE CI/CD",
-          description: "Sistema em realidade virtual para explorar execuções de pipelines do GitHub Actions.",
-          technologies: "Unity · C# · OpenXR",
+          description: "Sistema VR que transforma históricos do GitHub Actions numa linha temporal 3D navegável.",
+          technologies: "Unity · C# · OpenXR · API GitHub Actions",
           slug: "immersive-cicd",
           accent: "#a587c9",
           wash: "#eee7fa",

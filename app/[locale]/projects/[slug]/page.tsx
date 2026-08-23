@@ -64,6 +64,35 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
 
           <section className="border-b border-[var(--line)] py-12 md:py-16"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.highlights.title}</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{project.highlights.items.map((item) => <article key={item.title} className="rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5"><h3 className="font-serif text-2xl text-[var(--foreground)]">{item.title}</h3><p className="mt-4 text-sm leading-6 text-[var(--muted)]">{item.description}</p></article>)}</div></section>
 
+          {"caseStudy" in project && <>
+            <section className="border-b border-[var(--line)] py-12 md:py-16">
+              <h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.modelTitle}</h2>
+              <dl className="mt-6 grid gap-px overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
+                {project.caseStudy.modelItems.map((item) => <div key={item.label} className="bg-[#fffaf2] p-5"><dt className="font-serif text-2xl text-[var(--foreground)]">{item.label}</dt><dd className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.value}</dd></div>)}
+              </dl>
+            </section>
+
+            <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[0.7fr_1.3fr] md:py-16">
+              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.architectureTitle}</h2><h3 className="mt-8 font-serif text-2xl text-[var(--foreground)]">{project.caseStudy.interactionTitle}</h3><p className="mt-4 text-sm leading-7 text-[var(--muted)]">{project.caseStudy.interaction}</p></div>
+              <ol className="grid gap-2">
+                {project.caseStudy.architecture.map((item, index) => <li key={item} className="flex items-center gap-4 rounded-lg border border-[var(--line)] bg-[var(--lavender-soft)] px-4 py-3"><span className="font-mono text-[10px] text-[var(--coral)]">{String(index + 1).padStart(2, "0")}</span><span className="text-sm text-[var(--foreground)]">{item}</span></li>)}
+              </ol>
+            </section>
+
+            <section className="grid gap-8 border-b border-[var(--line)] py-12 lg:grid-cols-[0.8fr_1.2fr] md:py-16">
+              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.evaluationTitle}</h2><p className="mt-6 text-sm leading-7 text-[var(--muted)]">{project.caseStudy.evaluationIntro}</p></div>
+              <div className="overflow-hidden rounded-xl border border-[var(--line)]">
+                <div className="grid grid-cols-[1fr_auto_auto] gap-4 bg-[var(--coral-soft)] px-4 py-3 font-mono text-[9px] text-[var(--coral)]"><span>{project.caseStudy.tableLabel}</span><span>GitHub</span><span className="w-14 text-right">VR</span></div>
+                {project.caseStudy.results.map((result) => <div key={result.label} className="grid grid-cols-[1fr_auto_auto] gap-4 border-t border-[var(--line)] bg-[#fffaf2] px-4 py-3 text-xs text-[var(--foreground)]"><span>{result.label}</span><span className="font-mono text-[10px] text-[var(--muted)]">{result.github}</span><span className="w-14 text-right font-mono text-[10px] text-[var(--foreground)]">{result.vr}</span></div>)}
+              </div>
+            </section>
+
+            <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[0.6fr_1.4fr] md:py-16">
+              <h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.lessonsTitle}</h2>
+              <ul className="grid gap-4 sm:grid-cols-2">{project.caseStudy.lessons.map((item) => <li key={item} className="rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5 text-sm leading-7 text-[var(--muted)]">{item}</li>)}</ul>
+            </section>
+          </>}
+
           <section className={`grid gap-4 border-b border-[var(--line)] py-12 md:py-16 ${project.screenshots.length ? "md:grid-cols-2" : ""}`}><article className="rounded-xl border border-[var(--line)] bg-[var(--lavender-soft)] p-6"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.outcome.title}</h2><p className="mt-5 text-sm leading-7 text-[var(--foreground)]">{project.outcome.description}</p></article>{project.screenshots.length > 0 && <div className="rounded-xl border border-dashed border-[var(--line)] p-6"><p className="font-mono text-[11px] text-[var(--coral)]">screenshots</p><div className="mt-5 grid gap-3 sm:grid-cols-3">{project.screenshots.map((screenshot) => <div key={screenshot.title} className="min-h-32 border border-[var(--line)] bg-[#fffaf2] p-3"><span className="font-mono text-base text-[var(--coral)]">⌁</span><h3 className="mt-5 font-mono text-[10px] text-[var(--foreground)]">{screenshot.title}</h3><p className="mt-2 text-[10px] leading-4 text-[var(--muted)]">{screenshot.description}</p></div>)}</div></div>}</section>
 
           <section className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between"><div className="flex flex-wrap gap-2">{project.technologies.map((technology) => <span key={technology} className="rounded-full border border-[var(--line)] px-3 py-2 font-mono text-[10px] text-[var(--muted)]">{technology}</span>)}</div><Link href={`/${locale}#work`} className="inline-flex items-center gap-1.5 font-mono text-[11px] text-[var(--coral)]"><span className="material-symbols-rounded text-sm" aria-hidden="true">arrow_back</span>{project.backLabel}</Link></section>
