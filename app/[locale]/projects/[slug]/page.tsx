@@ -47,6 +47,9 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
             {"caseStudy" in project ? <figure className="border border-white/70 bg-[#fffaf2]">
               <Image src="/images/projects/thesis/implem_all_factory.png" alt={project.caseStudy.imageAlts.hero} width={1399} height={826} priority sizes="(max-width: 1024px) calc(100vw - 72px), 55vw" className="h-auto w-full" />
               <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.caseStudy.imageCaptions.hero}</figcaption>
+            </figure> : "o2moveVisuals" in project ? <figure className="border border-white/70 bg-[#fffaf2]">
+              <div className="flex max-h-[620px] justify-center overflow-hidden bg-[#eefaf5] p-3"><Image src="/images/projects/o2move/standby_page.png" alt={project.o2moveVisuals.hero.alt} width={2160} height={3840} priority sizes="(max-width: 1024px) calc(100vw - 72px), 34vw" className="h-auto max-h-[594px] w-auto object-contain" /></div>
+              <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.o2moveVisuals.hero.caption}</figcaption>
             </figure> : <div className="flex min-h-64 items-end justify-between border border-white/70 bg-[radial-gradient(circle_at_78%_36%,#d2e1e4_0_2px,transparent_3px),radial-gradient(circle_at_40%_50%,#b5d9e8_0_3px,transparent_4px),linear-gradient(135deg,#fff8ef,#b5cee2)] p-5 md:min-h-80">
               <p className="font-mono text-[10px] text-[var(--muted)]">{project.visual.label}</p>
               <span className="material-symbols-rounded text-7xl text-[var(--coral)]/70" aria-hidden="true">{project.visual.icon}</span>
@@ -67,6 +70,15 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
           <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[0.6fr_1.4fr] md:py-16"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.role.title}</h2><ul className="grid gap-4">{project.role.items.map((item) => <li key={item} className="border-l-2 border-[var(--coral)] pl-4 text-sm leading-7 text-[var(--muted)]">{item}</li>)}</ul></section>
 
           <section className="border-b border-[var(--line)] py-12 md:py-16"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.highlights.title}</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{project.highlights.items.map((item) => <article key={item.title} className="rounded-xl border border-[var(--line)] bg-[#fffaf2] p-5"><h3 className="font-serif text-2xl text-[var(--foreground)]">{item.title}</h3><p className="mt-4 text-sm leading-6 text-[var(--muted)]">{item.description}</p></article>)}</div></section>
+
+          {"o2moveVisuals" in project && <section className="border-b border-[var(--line)] py-12 md:py-16">
+            <div className="grid gap-6 md:grid-cols-[0.6fr_1.4fr] md:items-end"><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.o2moveVisuals.title}</h2><p className="max-w-2xl text-sm leading-7 text-[var(--muted)]">{project.o2moveVisuals.description}</p></div>
+            <div className="-mx-6 mt-8 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-6 pb-3 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
+              <figure className="w-[78vw] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-xl border border-[var(--line)] bg-[#fffaf2] md:w-full md:max-w-none"><Image src="/images/projects/o2move/spider-map_page_stop_mode.png" alt={project.o2moveVisuals.stopMode.alt} width={2160} height={3840} sizes="(max-width: 768px) 78vw, 30vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-4 py-3 text-[10px] leading-4 text-[var(--muted)]">{project.o2moveVisuals.stopMode.caption}</figcaption></figure>
+              <figure className="w-[78vw] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-xl border border-[var(--line)] bg-[#fffaf2] md:w-full md:max-w-none"><Image src="/images/projects/o2move/spider-map_page_hub_mode.png" alt={project.o2moveVisuals.hubMode.alt} width={2160} height={3840} sizes="(max-width: 768px) 78vw, 30vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-4 py-3 text-[10px] leading-4 text-[var(--muted)]">{project.o2moveVisuals.hubMode.caption}</figcaption></figure>
+              <figure className="w-[78vw] max-w-[420px] shrink-0 snap-start overflow-hidden rounded-xl border border-[var(--line)] bg-[#fffaf2] md:w-full md:max-w-none"><Image src="/images/projects/o2move/spider-map_page_mapa.png" alt={project.o2moveVisuals.schematic.alt} width={2160} height={3840} sizes="(max-width: 768px) 78vw, 30vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-4 py-3 text-[10px] leading-4 text-[var(--muted)]">{project.o2moveVisuals.schematic.caption}</figcaption></figure>
+            </div>
+          </section>}
 
           {"caseStudy" in project && <>
             <section className="border-b border-[var(--line)] py-12 md:py-16">
