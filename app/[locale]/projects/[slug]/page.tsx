@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "../../content";
@@ -43,10 +44,13 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
 
           <div className="relative overflow-hidden rounded-xl border border-[var(--line)] bg-[linear-gradient(135deg,#e0cbb7,#f9ece0_42%,#bdd2dd)] p-3 shadow-[5px_7px_12px_rgb(91_62_43_/_10%)]">
             <span className="absolute -top-2 left-14 h-5 w-24 -rotate-3 bg-[#f4b5b4]/75" />
-            <div className="flex min-h-64 items-end justify-between border border-white/70 bg-[radial-gradient(circle_at_78%_36%,#d2e1e4_0_2px,transparent_3px),radial-gradient(circle_at_40%_50%,#b5d9e8_0_3px,transparent_4px),linear-gradient(135deg,#fff8ef,#b5cee2)] p-5 md:min-h-80">
+            {"caseStudy" in project ? <figure className="border border-white/70 bg-[#fffaf2]">
+              <Image src="/images/projects/thesis/implem_all_factory.png" alt={project.caseStudy.imageAlts.hero} width={1399} height={826} priority sizes="(max-width: 1024px) calc(100vw - 72px), 55vw" className="h-auto w-full" />
+              <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.caseStudy.imageCaptions.hero}</figcaption>
+            </figure> : <div className="flex min-h-64 items-end justify-between border border-white/70 bg-[radial-gradient(circle_at_78%_36%,#d2e1e4_0_2px,transparent_3px),radial-gradient(circle_at_40%_50%,#b5d9e8_0_3px,transparent_4px),linear-gradient(135deg,#fff8ef,#b5cee2)] p-5 md:min-h-80">
               <p className="font-mono text-[10px] text-[var(--muted)]">{project.visual.label}</p>
               <span className="material-symbols-rounded text-7xl text-[var(--coral)]/70" aria-hidden="true">{project.visual.icon}</span>
-            </div>
+            </div>}
           </div>
         </section>
 
@@ -73,15 +77,29 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
             </section>
 
             <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[0.7fr_1.3fr] md:py-16">
-              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.architectureTitle}</h2><h3 className="mt-8 font-serif text-2xl text-[var(--foreground)]">{project.caseStudy.interactionTitle}</h3><p className="mt-4 text-sm leading-7 text-[var(--muted)]">{project.caseStudy.interaction}</p></div>
+              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.architectureTitle}</h2><p className="mt-6 max-w-sm text-sm leading-7 text-[var(--muted)]">{project.visual.description}</p></div>
               <ol className="grid gap-2">
                 {project.caseStudy.architecture.map((item, index) => <li key={item} className="flex items-center gap-4 rounded-lg border border-[var(--line)] bg-[var(--lavender-soft)] px-4 py-3"><span className="font-mono text-[10px] text-[var(--coral)]">{String(index + 1).padStart(2, "0")}</span><span className="text-sm text-[var(--foreground)]">{item}</span></li>)}
               </ol>
             </section>
 
+            <section className="border-b border-[var(--line)] py-12 md:py-16">
+              <h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.interactionTitle}</h2>
+              <p className="mt-6 max-w-3xl text-sm leading-7 text-[var(--muted)]">{project.caseStudy.interaction}</p>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <figure className="overflow-hidden rounded-xl border border-[var(--line)] bg-[#fffaf2]"><Image src="/images/projects/thesis/magnifier_in_scene.png" alt={project.caseStudy.imageAlts.magnifier} width={1421} height={877} sizes="(max-width: 768px) calc(100vw - 72px), 48vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">{project.caseStudy.imageCaptions.magnifier}</figcaption></figure>
+                <figure className="overflow-hidden rounded-xl border border-[var(--line)] bg-[#fffaf2]"><Image src="/images/projects/thesis/run_info_panel_in_scene.png" alt={project.caseStudy.imageAlts.runPanel} width={1380} height={825} sizes="(max-width: 768px) calc(100vw - 72px), 48vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">{project.caseStudy.imageCaptions.runPanel}</figcaption></figure>
+              </div>
+            </section>
+
+            <section className="grid gap-8 border-b border-[var(--line)] py-12 md:grid-cols-[0.6fr_1.4fr] md:items-center md:py-16">
+              <figure className="mx-auto w-full max-w-64 overflow-hidden rounded-xl border border-[var(--line)] bg-white p-3 shadow-[3px_5px_8px_rgb(91_62_43_/_8%)]"><Image src="/images/projects/thesis/color_palette_daltonic_friendly.png" alt={project.caseStudy.imageAlts.palette} width={551} height={719} sizes="256px" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-2 pt-3 text-[10px] leading-4 text-[var(--muted)]">{project.caseStudy.imageCaptions.palette}</figcaption></figure>
+              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.visualCuesTitle}</h2><p className="mt-6 max-w-2xl text-sm leading-7 text-[var(--muted)]">{project.caseStudy.visualCues}</p></div>
+            </section>
+
             <section className="grid gap-8 border-b border-[var(--line)] py-12 lg:grid-cols-[0.8fr_1.2fr] md:py-16">
-              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.evaluationTitle}</h2><p className="mt-6 text-sm leading-7 text-[var(--muted)]">{project.caseStudy.evaluationIntro}</p></div>
-              <div className="overflow-hidden rounded-xl border border-[var(--line)]">
+              <div><h2 className="font-mono text-[11px] text-[var(--coral)]">{project.caseStudy.evaluationTitle}</h2><p className="mt-6 text-sm leading-7 text-[var(--muted)]">{project.caseStudy.evaluationIntro}</p><figure className="mt-6 overflow-hidden rounded-xl border border-[var(--line)] bg-[#fffaf2]"><div className="relative aspect-[4/3] overflow-hidden"><Image src="/images/projects/thesis/eval_user_vr.png" alt={project.caseStudy.imageAlts.evaluation} fill sizes="(max-width: 1024px) calc(100vw - 72px), 36vw" className="object-cover object-[50%_44%]" /></div><figcaption className="border-t border-[var(--line)] px-4 py-3 text-[10px] leading-4 text-[var(--muted)]">{project.caseStudy.imageCaptions.evaluation}</figcaption></figure></div>
+              <div className="self-start overflow-hidden rounded-xl border border-[var(--line)]">
                 <div className="grid grid-cols-[1fr_auto_auto] gap-4 bg-[var(--coral-soft)] px-4 py-3 font-mono text-[9px] text-[var(--coral)]"><span>{project.caseStudy.tableLabel}</span><span>GitHub</span><span className="w-14 text-right">VR</span></div>
                 {project.caseStudy.results.map((result) => <div key={result.label} className="grid grid-cols-[1fr_auto_auto] gap-4 border-t border-[var(--line)] bg-[#fffaf2] px-4 py-3 text-xs text-[var(--foreground)]"><span>{result.label}</span><span className="font-mono text-[10px] text-[var(--muted)]">{result.github}</span><span className="w-14 text-right font-mono text-[10px] text-[var(--foreground)]">{result.vr}</span></div>)}
               </div>
