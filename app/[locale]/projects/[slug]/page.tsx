@@ -22,6 +22,7 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
   const { locale, slug } = await props.params;
   if (!isLocale(locale) || !isProjectSlug(slug)) notFound();
   const project = getProject(locale, slug);
+  const hasHeroVisual = "caseStudy" in project || "o2moveVisuals" in project;
 
   return (
     <main className="min-h-screen px-3 py-3 sm:px-5 sm:py-5">
@@ -34,26 +35,23 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
           </div>
         </header>
 
-        <section className="mx-auto grid max-w-[1280px] gap-8 px-6 py-10 md:px-10 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:py-14">
-          <div>
+        <section className={`mx-auto grid max-w-[1280px] gap-8 px-6 py-10 md:px-10 lg:items-center lg:py-14 ${hasHeroVisual ? "lg:grid-cols-[1fr_0.8fr]" : ""}`}>
+          <div className={hasHeroVisual ? "" : "max-w-3xl"}>
             <p className="font-mono text-[11px] text-[var(--coral)]">{project.label}</p>
             <h1 className="mt-4 font-serif text-5xl leading-none text-[var(--foreground)] md:text-6xl">{project.title}</h1>
             <p className="mt-4 max-w-2xl font-serif text-2xl leading-snug text-[var(--foreground)]">{project.description}</p>
             <p className="mt-6 max-w-xl text-sm leading-7 text-[var(--muted)]">{project.visual.description}</p>
           </div>
 
-          <div className="mx-auto w-full max-w-[520px]">
+          {hasHeroVisual && <div className="mx-auto w-full max-w-[520px]">
             {"caseStudy" in project ? <figure className="overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2]">
               <Image src="/images/projects/thesis/implem_all_factory.png" alt={project.caseStudy.imageAlts.hero} width={1399} height={826} priority sizes="(max-width: 1024px) calc(100vw - 72px), 55vw" className="h-auto w-full" />
               <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.caseStudy.imageCaptions.hero}</figcaption>
             </figure> : "o2moveVisuals" in project ? <figure className="mx-auto max-w-[300px] overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2]">
               <div className="flex max-h-[450px] justify-center overflow-hidden bg-[#eefaf5]"><Image src="/images/projects/o2move/standby_page.png" alt={project.o2moveVisuals.hero.alt} width={2160} height={3840} priority sizes="(max-width: 1024px) 70vw, 300px" className="h-auto max-h-[450px] w-auto object-contain" /></div>
               <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.o2moveVisuals.hero.caption}</figcaption>
-            </figure> : <div className="flex min-h-52 items-end justify-between rounded-lg border border-[var(--line)] bg-[var(--lavender-soft)] p-5">
-              <p className="font-mono text-[10px] text-[var(--muted)]">{project.visual.label}</p>
-              <span className="material-symbols-rounded text-7xl text-[var(--coral)]/70" aria-hidden="true">{project.visual.icon}</span>
-            </div>}
-          </div>
+            </figure> : null}
+          </div>}
         </section>
 
         <dl className="mx-auto grid max-w-[1280px] gap-x-8 gap-y-4 border-y border-[var(--line)] px-6 py-5 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
