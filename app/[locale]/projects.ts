@@ -56,7 +56,7 @@ export const projects = {
           "O2MOVE brings public-transport, route-planning and environmental information together on interactive mobility-hub displays. I inherited an older application whose core transport logic already existed and became responsible for adapting and developing the current version.",
       },
       role: {
-        title: "My contribution",
+        title: "What I owned",
         items: [
           "Migrated the frontend from React 16 and Create React App to React 18 and Vite, converting class components to hooks and replacing incompatible dependencies.",
           "Upgraded .NET Core 3.1 to .NET 8 while preserving the pre-existing transport logic.",
@@ -66,7 +66,7 @@ export const projects = {
         ],
       },
       highlights: {
-        title: "Technical highlights",
+        title: "Engineering highlights",
         items: [
           {
             title: "Public-display responsive design",
@@ -93,8 +93,12 @@ export const projects = {
       outcome: {
         title: "Real-world context",
         description:
-          "A real O2MOVE installation operates in Trofa, where the municipality installed Portugal's first O2MOVE hub in 2026. The product was also demonstrated at Smart City events.",
+          "A real O2MOVE installation operates in Trofa, where the municipality installed Portugal's first O2MOVE hub in 2026. The product has also been presented to international and Portuguese Smart City audiences.",
       },
+      outcomeLinks: [
+        { label: "Smart City Expo World Congress 2025 · Barcelona", href: "https://www.opt.pt/2025/11/o2-move-smart-city-expo-world-congress-2025-barcelona/" },
+        { label: "Portugal Smart Cities Summit 2026", href: "https://www.armisgroup.com/pt/post/o2-move-no-portugal-smart-cities-summit-2026-1" },
+      ],
       screenshots: [],
       technologies: ["React 18", "Vite", "Leaflet", ".NET 8", "Figma", "SVG"],
     },
@@ -114,8 +118,8 @@ export const projects = {
       visual: { label: "UNITY / OPENXR RESEARCH PROTOTYPE", title: "A multi-floor factory built from CI/CD history", description: "Each workflow becomes a floor, each run a block on a conveyor-like timeline, and each job a smaller block contained within its run.", icon: "view_in_ar" },
       overview: { title: "The problem", description: "GitHub Actions is effective for inspecting one run at a time, but it is difficult to see timing, overlap, hierarchy and failures across many workflows in one view. This thesis explored whether a spatial representation could support that broader perspective." },
       product: { title: "Individual ownership", description: "I designed and implemented the prototype under academic supervision, including data integration, procedural scene generation, VR interaction, spatial audio, study design and analysis. Unity template assets and third-party media were not created by me." },
-      role: { title: "What I built", items: ["Integrated the GitHub Actions REST API and local JSON snapshots through a shared data-provider abstraction.", "Modelled workflows, runs and jobs, then generated the factory scene procedurally from their hierarchy and timestamps.", "Built VR navigation, hover information panels, floor selection, magnification and world-scaling tools.", "Added visual failure states and supplementary spatial audio for failed runs.", "Designed, conducted and analysed a counterbalanced within-subjects study with 20 participants."] },
-      highlights: { title: "Core engineering challenges", items: [{ title: "Time in 3D space", description: "Mapped a shared timestamp origin to the Z-axis and execution duration to block length, preserving alignment across workflow floors." }, { title: "Concurrent lanes", description: "Used greedy first-fit interval assignment so overlapping runs and jobs appear side by side while sequential activity reuses space." }, { title: "Compressed idle time", description: "Detected repository-wide inactive periods and replaced long empty distances with labelled portals that make the discontinuity explicit." }] },
+      role: { title: "What I owned", items: ["Integrated the GitHub Actions REST API and local JSON snapshots through a shared data-provider abstraction.", "Modelled workflows, runs and jobs, then generated the factory scene procedurally from their hierarchy and timestamps.", "Built VR navigation, hover information panels, floor selection, magnification and world-scaling tools.", "Added visual failure states and supplementary spatial audio for failed runs.", "Designed, conducted and analysed a counterbalanced within-subjects study with 20 participants."] },
+      highlights: { title: "Engineering highlights", items: [{ title: "Time in 3D space", description: "Mapped a shared timestamp origin to the Z-axis and execution duration to block length, preserving alignment across workflow floors." }, { title: "Concurrent lanes", description: "Used greedy first-fit interval assignment so overlapping runs and jobs appear side by side while sequential activity reuses space." }, { title: "Compressed idle time", description: "Detected repository-wide inactive periods and replaced long empty distances with labelled portals that make the discontinuity explicit." }] },
       outcome: { title: "What the evaluation showed", description: "In this 20-participant study, VR was faster for temporal navigation and run-level failure scanning, while GitHub Actions was faster for detailed failed-job lookup. The result suggests complementary strengths rather than overall superiority. The thesis received 17/20." },
       caseStudy: {
         modelTitle: "How the visual model works",
@@ -155,7 +159,7 @@ export const projects = {
       visual: { label: "VISUAIS MANTIDOS PRIVADOS", title: "Informação clara para planos de mobilidade complexos", description: "Este caso de estudo mantém-se centrado no texto enquanto screenshots e designs permanecem privados.", icon: "monitoring" },
       overview: { title: "O produto", description: "O MOTUS ajuda municípios a monitorizar PMUS através de uma alternativa ou complemento digital aos fluxos baseados em folhas de cálculo. Reúne medidas, indicadores e progresso em interfaces configuráveis." },
       product: { title: "Pensamento de produto", description: "O desafio central foi tornar informação densa compreensível sem perder o detalhe necessário às equipas municipais." },
-      role: { title: "O que desenvolvi", items: ["Liderei o frontend do dashboard e implementei quase todas as interfaces, exceto uma área de administração já existente.", "Desenhei em Figma grande parte da linguagem visual e hierarquia de informação.", "Criei gráficos Nivo reutilizáveis e interfaces configuráveis para diferentes municípios.", "Contribuí em controllers, migrações EF, pesquisa, filtragem, Razor Pages e integração de licenciamento."] },
+      role: { title: "O que esteve a meu cargo", items: ["Liderei o frontend do dashboard e implementei quase todas as interfaces, exceto uma área de administração já existente.", "Desenhei em Figma grande parte da linguagem visual e hierarquia de informação.", "Criei gráficos Nivo reutilizáveis e interfaces configuráveis para diferentes municípios.", "Contribuí em controllers, migrações EF, pesquisa, filtragem, Razor Pages e integração de licenciamento."] },
       highlights: { title: "Destaques de engenharia", items: [{ title: "Visualização reutilizável", description: "Criei modelos de gráficos consistentes para diferentes indicadores." }, { title: "Configuração", description: "Estruturei a interface para diferentes contextos municipais." }, { title: "Do design à entrega", description: "Trabalhei de Figma à implementação e dei formação a utilizadores municipais." }] },
       outcome: { title: "Utilização real", description: "O MOTUS é utilizado por vários municípios portugueses. Participei numa reunião com cliente e dei formação sobre a plataforma." }, screenshots: [], technologies: ["React", ".NET", "Nivo", "Figma", "Entity Framework", "Razor Pages"],
     },
@@ -201,7 +205,7 @@ export const projects = {
           "O O2MOVE é uma plataforma pública de informação integrada num hub de mobilidade urbana sustentável. Reúne informação de mobilidade numa experiência interativa voltada para o público.",
       },
       role: {
-        title: "A minha contribuição",
+        title: "O que esteve a meu cargo",
         items: [
           "Migrei o frontend de React 16 e Create React App para React 18 e Vite, convertendo componentes de classe para hooks e substituindo dependências incompatíveis.",
           "Atualizei .NET Core 3.1 para .NET 8, preservando a lógica de transportes preexistente.",
@@ -211,7 +215,7 @@ export const projects = {
         ],
       },
       highlights: {
-        title: "Destaques técnicos",
+        title: "Destaques de engenharia",
         items: [
           {
             title: "Design responsivo para ecrãs públicos",
@@ -238,8 +242,12 @@ export const projects = {
       outcome: {
         title: "Contexto real",
         description:
-          "Existe uma instalação real do O2MOVE na Trofa, onde o município instalou o primeiro hub O2MOVE de Portugal em 2026. O produto também foi demonstrado em eventos Smart City.",
+          "Existe uma instalação real do O2MOVE na Trofa, onde o município instalou o primeiro hub O2MOVE de Portugal em 2026. O produto também foi apresentado a públicos internacionais e portugueses ligados às Smart Cities.",
       },
+      outcomeLinks: [
+        { label: "Smart City Expo World Congress 2025 · Barcelona", href: "https://www.opt.pt/2025/11/o2-move-smart-city-expo-world-congress-2025-barcelona/" },
+        { label: "Portugal Smart Cities Summit 2026", href: "https://www.armisgroup.com/pt/post/o2-move-no-portugal-smart-cities-summit-2026-1" },
+      ],
       screenshots: [],
       technologies: ["React 18", "Vite", "Leaflet", "ASP.NET Core"],
     },
@@ -249,7 +257,7 @@ export const projects = {
       visual: { label: "SERVIÇO DE DADOS · SEM INTERFACE PÚBLICA", title: "De dados de fornecedores a resultados prontos para investigação", description: "Endpoints, infraestrutura e detalhes operacionais permanecem privados.", icon: "satellite_alt" },
       overview: { title: "O serviço", description: "Serviço FastAPI em produção que fornece dados ambientais e de satélite a uma equipa externa que desenvolve um modelo de previsão de risco de incêndio para Portugal." },
       product: { title: "O complemento backend", description: "Mostra a vertente de sistemas do meu trabalho: investigar fornecedores, normalizar resultados e colocar em produção um serviço utilizado por outra equipa." },
-      role: { title: "O que desenvolvi", items: ["Desenhei o serviço e implementei todo o fluxo Landsat 9.", "Implementei recorte sensível a CRS, máscaras QA, conversão de temperatura e metadados STAC.", "Criei a integração ERA5-Land e o pipeline VIIRS de HDF5 para Parquet.", "Integrei trabalho Copernicus preexistente de outro programador sem atribuir os algoritmos a mim.", "Tratei da maior parte da colocação em produção e de atualizações posteriores de Nginx e middleware de chaves de API."] },
+      role: { title: "O que esteve a meu cargo", items: ["Desenhei o serviço e implementei todo o fluxo Landsat 9.", "Implementei recorte sensível a CRS, máscaras QA, conversão de temperatura e metadados STAC.", "Criei a integração ERA5-Land e o pipeline VIIRS de HDF5 para Parquet.", "Integrei trabalho Copernicus preexistente de outro programador sem atribuir os algoritmos a mim.", "Tratei da maior parte da colocação em produção e de atualizações posteriores de Nginx e middleware de chaves de API."] },
       highlights: { title: "Destaques de engenharia", items: [{ title: "Vários fornecedores", description: "Unifiquei Copernicus, ERA5-Land, USGS Landsat e NASA Earthdata." }, { title: "Processamento geoespacial", description: "Implementei operações raster e transformações de dados científicos." }, { title: "Metadados reutilizáveis", description: "Introduzi STAC para resultados consistentes e pesquisáveis." }] },
       outcome: { title: "Utilização real", description: "O serviço fornece dados processados a uma equipa externa que investiga risco de incêndio em Portugal." }, screenshots: [], technologies: ["Python", "FastAPI", "Rasterio", "STAC", "HDF5", "Parquet", "Nginx"],
     },
@@ -259,8 +267,8 @@ export const projects = {
       visual: { label: "PROTÓTIPO DE INVESTIGAÇÃO UNITY / OPENXR", title: "Uma fábrica de vários pisos construída a partir do histórico de CI/CD", description: "Cada workflow torna-se um piso, cada execução um bloco numa linha temporal e cada job um bloco menor contido na execução.", icon: "view_in_ar" },
       overview: { title: "O problema", description: "O GitHub Actions é eficaz para inspecionar uma execução, mas torna difícil ver tempo, sobreposição, hierarquia e falhas em vários workflows. A dissertação explorou se uma representação espacial poderia apoiar essa perspetiva global." },
       product: { title: "Responsabilidade individual", description: "Desenhei e implementei o protótipo sob supervisão académica, incluindo integração de dados, geração procedural, interação VR, áudio espacial, estudo e análise. Os assets de template e media de terceiros não foram criados por mim." },
-      role: { title: "O que desenvolvi", items: ["Integrei a API REST do GitHub Actions e snapshots JSON locais através de uma abstração comum.", "Modelei workflows, execuções e jobs e gerei proceduralmente a fábrica a partir da hierarquia e dos timestamps.", "Criei navegação VR, painéis de informação, seleção de pisos, lupa e escala do mundo.", "Adicionei estados visuais e áudio espacial suplementar para falhas.", "Desenhei, realizei e analisei um estudo contrabalançado com 20 participantes."] },
-      highlights: { title: "Principais desafios", items: [{ title: "Tempo no espaço 3D", description: "Mapeei uma origem temporal comum ao eixo Z e a duração ao comprimento dos blocos, alinhando todos os pisos." }, { title: "Pistas concorrentes", description: "Usei atribuição greedy first-fit para mostrar intervalos sobrepostos lado a lado e reutilizar espaço nos sequenciais." }, { title: "Tempo inativo comprimido", description: "Detetei períodos sem atividade e substituí grandes distâncias por portais identificados." }] },
+      role: { title: "O que esteve a meu cargo", items: ["Integrei a API REST do GitHub Actions e snapshots JSON locais através de uma abstração comum.", "Modelei workflows, execuções e jobs e gerei proceduralmente a fábrica a partir da hierarquia e dos timestamps.", "Criei navegação VR, painéis de informação, seleção de pisos, lupa e escala do mundo.", "Adicionei estados visuais e áudio espacial suplementar para falhas.", "Desenhei, realizei e analisei um estudo contrabalançado com 20 participantes."] },
+      highlights: { title: "Destaques de engenharia", items: [{ title: "Tempo no espaço 3D", description: "Mapeei uma origem temporal comum ao eixo Z e a duração ao comprimento dos blocos, alinhando todos os pisos." }, { title: "Pistas concorrentes", description: "Usei atribuição greedy first-fit para mostrar intervalos sobrepostos lado a lado e reutilizar espaço nos sequenciais." }, { title: "Tempo inativo comprimido", description: "Detetei períodos sem atividade e substituí grandes distâncias por portais identificados." }] },
       outcome: { title: "O que mostrou a avaliação", description: "Neste estudo com 20 participantes, a VR foi mais rápida na navegação temporal e identificação de falhas ao nível da execução; o GitHub Actions foi mais rápido na consulta detalhada de jobs. O resultado aponta para forças complementares. A dissertação recebeu 17/20." },
       caseStudy: {
         modelTitle: "Como funciona o modelo visual", modelItems: [{ label: "Altura", value: "Um piso separado por workflow" }, { label: "Profundidade", value: "Tempo, com atividade antiga mais distante" }, { label: "Largura", value: "Pistas paralelas para intervalos sobrepostos" }, { label: "Contenção", value: "Hierarquia workflow → execução → job" }],
@@ -281,7 +289,7 @@ export const projects = {
       visual: { label: "DETALHES SENSÍVEIS OMITIDOS", title: "Ponte entre aplicações antigas e modernas", description: "O caso não expõe parâmetros, protocolos ou infraestrutura de licenciamento.", icon: "key" },
       overview: { title: "O problema", description: "Um sistema em .NET Framework precisava de funcionar com aplicações .NET modernas, preservando compatibilidade com uma integração antiga." },
       product: { title: "Âmbito explícito", description: "É licenciamento de software, não autenticação. Modernizei a integração e não criei o protocolo criptográfico subjacente." },
-      role: { title: "O que desenvolvi", items: ["Migrei a biblioteca para .NET 8.", "Implementei uma camada de compatibilidade SOAP.", "Desenhei uma API REST com rotas, DTOs, serviço e cinco operações.", "Resolvi a distinção entre o servidor e o computador cliente licenciado.", "Integrei o serviço no MOTUS em produção."] },
+      role: { title: "O que esteve a meu cargo", items: ["Migrei a biblioteca para .NET 8.", "Implementei uma camada de compatibilidade SOAP.", "Desenhei uma API REST com rotas, DTOs, serviço e cinco operações.", "Resolvi a distinção entre o servidor e o computador cliente licenciado.", "Integrei o serviço no MOTUS em produção."] },
       highlights: { title: "Destaques de engenharia", items: [{ title: "Compatibilidade", description: "Preservei comportamento numa versão suportada." }, { title: "Cliente correto", description: "Resolvi a fronteira entre servidor e computador licenciado." }, { title: "API reutilizável", description: "Expus cinco operações para aplicações modernas." }] },
       outcome: { title: "Resultado", description: "O serviço está integrado no MOTUS e é utilizado em produção, mantendo privados os detalhes internos." }, screenshots: [], technologies: [".NET 8", "ASP.NET Core", "REST", "SOAP", "DTOs"],
     },
