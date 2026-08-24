@@ -25,7 +25,7 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
 
   return (
     <main className="min-h-screen px-3 py-3 sm:px-5 sm:py-5">
-      <article className="mx-auto max-w-[1280px] overflow-hidden rounded-[22px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_10px_28px_rgb(91_62_43_/_8%)]">
+      <article className="mx-auto max-w-[1520px] overflow-hidden rounded-[26px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_12px_35px_rgb(91_62_43_/_10%)]">
         <header className="flex min-h-16 items-center justify-between border-b border-[var(--line)] px-6 py-4 md:px-10">
           <Link href={`/${locale}#work`} className="inline-flex items-center gap-1.5 font-mono text-[11px] text-[var(--foreground)] transition-colors hover:text-[var(--coral)]"><span className="material-symbols-rounded text-sm" aria-hidden="true">arrow_back</span>{project.backLabel}</Link>
           <div className="flex flex-wrap justify-end gap-2">
@@ -34,7 +34,7 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
           </div>
         </header>
 
-        <section className="mx-auto grid max-w-[1080px] gap-8 px-6 py-10 md:px-10 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:py-14">
+        <section className="mx-auto grid max-w-[1280px] gap-8 px-6 py-10 md:px-10 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:py-14">
           <div>
             <p className="font-mono text-[11px] text-[var(--coral)]">{project.label}</p>
             <h1 className="mt-4 font-serif text-5xl leading-none text-[var(--foreground)] md:text-6xl">{project.title}</h1>
@@ -56,11 +56,11 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
           </div>
         </section>
 
-        <dl className="mx-auto grid max-w-[1080px] gap-x-8 gap-y-4 border-y border-[var(--line)] px-6 py-5 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
+        <dl className="mx-auto grid max-w-[1280px] gap-x-8 gap-y-4 border-y border-[var(--line)] px-6 py-5 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
           {project.metadata.map((item) => <div key={item.label}><dt className="flex items-center gap-2 font-mono text-[10px] text-[var(--coral)]"><span className="material-symbols-rounded text-sm" aria-hidden="true">{item.icon}</span>{item.label}</dt><dd className="mt-1.5 text-xs leading-5 text-[var(--foreground)]">{item.value}</dd></div>)}
         </dl>
 
-        <div className="mx-auto max-w-[1080px] px-6 md:px-10">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
           <section className="grid gap-8 border-b border-[var(--line)] py-10 md:grid-cols-[1fr_260px] md:py-12">
             <div><p className="font-mono text-[11px] text-[var(--coral)]">{project.overview.title}</p><p className="mt-6 max-w-2xl text-base leading-8 text-[var(--foreground)]">{project.overview.description}</p></div>
             <aside className="self-start border-l-2 border-[var(--coral)] pl-5"><p className="font-serif text-xl text-[var(--foreground)]">{project.product.title}</p><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.product.description}</p></aside>
