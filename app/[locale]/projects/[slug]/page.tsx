@@ -22,7 +22,7 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
   const { locale, slug } = await props.params;
   if (!isLocale(locale) || !isProjectSlug(slug)) notFound();
   const project = getProject(locale, slug);
-  const hasHeroVisual = "caseStudy" in project || "o2moveVisuals" in project;
+  const hasHeroVisual = "caseStudy" in project;
 
   return (
     <main className="min-h-screen px-3 py-3 sm:px-5 sm:py-5">
@@ -40,17 +40,14 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
             <p className="font-mono text-[11px] text-[var(--coral)]">{project.label}</p>
             <h1 className="mt-4 font-serif text-5xl leading-none text-[var(--foreground)] md:text-6xl">{project.title}</h1>
             <p className="mt-4 max-w-2xl font-serif text-2xl leading-snug text-[var(--foreground)]">{project.description}</p>
-            <p className="mt-6 max-w-xl text-sm leading-7 text-[var(--muted)]">{project.visual.description}</p>
+            {project.visual.description && <p className="mt-6 max-w-xl text-sm leading-7 text-[var(--muted)]">{project.visual.description}</p>}
           </div>
 
           {hasHeroVisual && <div className="mx-auto w-full max-w-[520px]">
-            {"caseStudy" in project ? <figure className="overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2]">
+            <figure className="overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2]">
               <Image src="/images/projects/thesis/implem_all_factory.png" alt={project.caseStudy.imageAlts.hero} width={1399} height={826} priority sizes="(max-width: 1024px) calc(100vw - 72px), 55vw" className="h-auto w-full" />
               <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.caseStudy.imageCaptions.hero}</figcaption>
-            </figure> : "o2moveVisuals" in project ? <figure className="mx-auto max-w-[300px] overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2]">
-              <div className="flex max-h-[450px] justify-center overflow-hidden bg-[#eefaf5]"><Image src="/images/projects/o2move/standby_page.png" alt={project.o2moveVisuals.hero.alt} width={2160} height={3840} priority sizes="(max-width: 1024px) 70vw, 300px" className="h-auto max-h-[450px] w-auto object-contain" /></div>
-              <figcaption className="border-t border-[var(--line)] px-4 py-3 font-mono text-[9px] leading-4 text-[var(--muted)]">{project.o2moveVisuals.hero.caption}</figcaption>
-            </figure> : null}
+            </figure>
           </div>}
         </section>
 
@@ -67,15 +64,6 @@ export default async function ProjectPage(props: PageProps<"/[locale]/projects/[
           <section className="grid gap-6 border-b border-[var(--line)] py-10 md:grid-cols-[220px_1fr] md:py-12"><h2 className="font-serif text-3xl text-[var(--foreground)]">{project.role.title}</h2><ul className="grid gap-3">{project.role.items.map((item) => <li key={item} className="relative pl-5 text-sm leading-7 text-[var(--muted)] before:absolute before:left-0 before:top-[0.7rem] before:h-1 before:w-1 before:rounded-full before:bg-[var(--coral)]">{item}</li>)}</ul></section>
 
           <section className="border-b border-[var(--line)] py-10 md:py-12"><h2 className="font-serif text-3xl text-[var(--foreground)]">{project.highlights.title}</h2><div className="mt-7 grid gap-x-8 gap-y-6 md:grid-cols-3">{project.highlights.items.map((item, index) => <article key={item.title} className="border-t border-[var(--line)] pt-4"><span className="font-mono text-[10px] text-[var(--coral)]">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-3 font-serif text-xl text-[var(--foreground)]">{item.title}</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.description}</p></article>)}</div></section>
-
-          {"o2moveVisuals" in project && <section className="border-b border-[var(--line)] py-10 md:py-12">
-            <div className="grid gap-4 md:grid-cols-[0.8fr_1.2fr] md:items-end"><h2 className="font-serif text-3xl text-[var(--foreground)]">{project.o2moveVisuals.title}</h2><p className="max-w-2xl text-sm leading-7 text-[var(--muted)]">{project.o2moveVisuals.description}</p></div>
-            <div className="-mx-6 mt-8 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-6 pb-3 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
-              <figure className="w-[72vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2] md:w-full md:max-w-none md:-rotate-[0.6deg]"><Image src="/images/projects/o2move/spider-map_page_stop_mode.png" alt={project.o2moveVisuals.stopMode.alt} width={2160} height={3840} sizes="(max-width: 768px) 72vw, 28vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-3 py-3 text-[10px] leading-4 text-[var(--muted)]"><span className="mr-2 font-mono text-[var(--coral)]">01</span>{project.o2moveVisuals.stopMode.caption}</figcaption></figure>
-              <figure className="w-[72vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2] md:w-full md:max-w-none"><Image src="/images/projects/o2move/spider-map_page_hub_mode.png" alt={project.o2moveVisuals.hubMode.alt} width={2160} height={3840} sizes="(max-width: 768px) 72vw, 28vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-3 py-3 text-[10px] leading-4 text-[var(--muted)]"><span className="mr-2 font-mono text-[var(--coral)]">02</span>{project.o2moveVisuals.hubMode.caption}</figcaption></figure>
-              <figure className="w-[72vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--line)] bg-[#fffaf2] md:w-full md:max-w-none md:rotate-[0.6deg]"><Image src="/images/projects/o2move/spider-map_page_mapa.png" alt={project.o2moveVisuals.schematic.alt} width={2160} height={3840} sizes="(max-width: 768px) 72vw, 28vw" className="h-auto w-full" /><figcaption className="border-t border-[var(--line)] px-3 py-3 text-[10px] leading-4 text-[var(--muted)]"><span className="mr-2 font-mono text-[var(--coral)]">03</span>{project.o2moveVisuals.schematic.caption}</figcaption></figure>
-            </div>
-          </section>}
 
           {"caseStudy" in project && <>
             <section className="border-b border-[var(--line)] py-10 md:py-12">
