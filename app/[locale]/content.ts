@@ -12,7 +12,6 @@ export const content = {
       work: "work",
       about: "about",
       notes: "archive",
-      cv: "CV",
       contact: "say hello",
     },
     hero: {
@@ -106,7 +105,6 @@ export const content = {
       emailLabel: "EMAIL",
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",
-      cvLabel: "Download CV",
       note: "",
     },
     archive: {
@@ -132,7 +130,6 @@ export const content = {
       work: "trabalho",
       about: "sobre",
       notes: "arquivo",
-      cv: "CV",
       contact: "diz olá",
     },
     hero: {
@@ -226,7 +223,6 @@ export const content = {
       emailLabel: "EMAIL",
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",
-      cvLabel: "Descarregar CV",
       note: "",
     },
     archive: {

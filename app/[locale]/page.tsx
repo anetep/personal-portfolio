@@ -40,11 +40,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                   </a>
                 </li>
               ))}
-              <li>
-                <a className="inline-flex items-center gap-1 transition-colors hover:text-[var(--coral)]" href="/documents/anete-pereira-cv.pdf" target="_blank" rel="noreferrer">
-                  {copy.navigation.cv}<span aria-hidden="true">↗</span>
-                </a>
-              </li>
             </ul>
           </nav>
 
@@ -189,7 +184,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <footer id="contact" className="border-t border-[var(--line)] bg-[var(--coral-soft)] px-6 py-12 md:px-10 md:py-14">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div><p className="font-mono text-[11px] text-[var(--coral)]">{copy.contact.eyebrow}</p><h2 className="mt-5 font-serif text-5xl text-[var(--foreground)]">{copy.contact.title}</h2><p className="mt-4 max-w-lg text-sm leading-6 text-[var(--muted)]">{copy.contact.description}</p><a href="mailto:anetempereira@gmail.com" className="mt-7 inline-block border-b border-[var(--coral)] pb-1 font-mono text-sm text-[var(--foreground)]">anetempereira@gmail.com</a></div>
-            <div className="font-mono text-xs leading-8 text-[var(--foreground)]"><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="https://github.com/anetep" target="_blank" rel="noreferrer">{copy.contact.githubLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="https://www.linkedin.com/in/anete-pereira-8b3726216/" target="_blank" rel="noreferrer">{copy.contact.linkedinLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="/documents/anete-pereira-cv.pdf" target="_blank" rel="noreferrer">{copy.contact.cvLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a>{copy.contact.note && <p className="mt-4 max-w-60 text-[10px] leading-5 text-[var(--muted)]">{copy.contact.note}</p>}</div>
+            <div className="font-mono text-xs leading-8 text-[var(--foreground)]"><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="https://github.com/anetep" target="_blank" rel="noreferrer">{copy.contact.githubLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a><a className="flex items-center gap-1.5 hover:text-[var(--coral)]" href="https://www.linkedin.com/in/anete-pereira-8b3726216/" target="_blank" rel="noreferrer">{copy.contact.linkedinLabel}<span className="material-symbols-rounded text-sm" aria-hidden="true">open_in_new</span></a>{copy.contact.note && <p className="mt-4 max-w-60 text-[10px] leading-5 text-[var(--muted)]">{copy.contact.note}</p>}</div>
           </div>
         </footer>
       </div>
