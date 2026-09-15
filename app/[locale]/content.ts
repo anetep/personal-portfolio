@@ -30,7 +30,7 @@ export const content = {
       items: [
         {
           year: "2024–25",
-          name: "MOTUS",
+          name: "MOBILITY DASHBOARD",
           description: "Commercial platform for monitoring urban mobility plans, used by Portuguese municipalities.",
           technologies: "Frontend ownership · UI/UX · Data visualisation",
           slug: "motus",
@@ -148,7 +148,7 @@ export const content = {
       items: [
         {
           year: "2024–25",
-          name: "MOTUS",
+          name: "DASHBOARD DE MOBILIDADE",
           description: "Plataforma comercial de monitorização de PMUS, utilizada por municípios portugueses.",
           technologies: "Responsabilidade frontend · UI/UX · Visualização de dados",
           slug: "motus",
